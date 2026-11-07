@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <basis core="print" datamembername="cms.seo" >
+        <face >
+          <title>@title</title>
+           	<meta name="Description" content="@description" />
+        </face>
+    </basis>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<basis core="dbsource" source="basiscore" mid="1" name="text" lid="2" usedforid="2448088">
+    <member name="about" type="view" postsql="select * from [text.about] where typeid=250" ></member>
+</basis>
+<basis core="dbsource" source="basiscore" mid="1" name="main" lid="2" usedforid="2448319">
+    <member name="brand" type="view" ></member>
+</basis>
+<basis core="dbsource" source="media" name="db" lid="2" usedforid="2448319" sourcemid="1">
+    <member name="img" type="list" format="4"></member>
+   
+</basis>
+<basis core="dbsource" source="media" name="db" lid="2" usedforid="2448088" sourcemid="1">
+    <member name="video" type="list" format="3"></member>
+   
+</basis>
+<basis core="dbsource" source="media" name="db" lid="2" usedforid="2448088" sourcemid="1">
+    <member name="gl" type="list" format="4"></member>
+   
+</basis>
+
+<basis core="dbsource" source="basiscore" lid="2" mid="11" name="list" catid="222972" >
+  <member name="current" type="list" perpage="200" typeid="159"  />
+</basis>
+
+<basis core="dbsource" source="basiscore" lid="2" mid="11" name="list" catid="222987" >
+  <member name="prv" type="list" perpage="200" typeid="159"  />
+</basis>
+
+<basis core="dbsource" source="media" name="db" lid="2" usedforid="2448088" sourcemid="1">
+    <member name="gl2" type="list" format="4" postsql="select * from [db.gl2] where ord=2"></member>
+   
+</basis>
+<basis core="dbsource" source="media" name="db" lid="2" usedforid="2448088" sourcemid="1">
+    <member name="gl3" type="list" format="4" postsql="select * from [db.gl3] where ord=3"></member>
+   
+</basis>
+<body class="gallery-page about-page  cv-page light">
+    <script>
+        try {
+            const savedTheme = localStorage.getItem('saffar-theme');
+            if (savedTheme === 'light' || savedTheme === 'dark') document.body.classList.toggle('light', savedTheme === 'light');
+        } catch (_) { }
+    </script>
+
+<basis core="call" file="header.inc" lid="2"></basis>
+
+
+    <main class="about-main">
+        <basis core="print" datamembername="db.video">
+            <face filter="ord=1">
+ <section class="about-hero" aria-label="Saffar Studio film">
+            <video autoplay muted loop playsinline preload="auto">
+                <source src="/@largeimg" type="video/mp4">
+            </video>
+        </section>
+            </face>
+        </basis>
+       
+
+        <article class="about-sheet">
+            <div class="container">
+                 <basis core="print" datamembername="text.about">
+            <face filter="rownumber=1">
+                <div class="about-intro">
+                  @answer
+                </div>
+</face>
+</basis>
+                <section class="about-brands" aria-labelledby="brands-title">
+                    <basis core="print" datamembername="main.brand">
+                        <face filter="typeid=150">
+   <h2 id="brands-title">@answer</h2>
+                        </face>
+                    </basis>
+                 
+                    <div class="about-brand-names">
+                            <basis core="print" datamembername="main.brand">
+                        <face filter="typeid=250">
+                        <span>@text<br>@largetext</span>
+                        </face>
+                        </basis>
+                    </div>
+                    <div class="about-brand-marks">
+                        <basis core="print" datamembername="db.img">
+                            <face>
+   <figure><img src="/@largeimg" alt="Eran platform">
+                            <figcaption>@name<br>@description</figcaption>
+                        </figure>
+                            </face>
+                        </basis>
+                     
+                       
+                        
+                    </div>
+                </section>
+
+                <section class="about-map" aria-label="International presence">
+                    <div class="about-timeline" aria-hidden="true">
+                        <time>2009</time>
+                        <span class="about-timeline-progress"></span>
+                        <b class="about-stop" data-step="0" style="--x:4.94%;--step:0"><i>USA</i></b><b class="about-stop"
+                            style="--x:10.93%;--step:1"><i>CAN</i></b><b class="about-stop"
+                            style="--x:22.40%;--step:2"><i>BR</i></b><b class="about-stop"
+                            style="--x:44.10%;--step:3"><i>ENG</i></b><b class="about-stop"
+                            style="--x:49.30%;--step:4"><i>FRA</i></b><b class="about-stop"
+                            style="--x:59.80%;--step:5"><i>IRQ</i></b><b class="about-stop"
+                            style="--x:69.30%;--step:6"><i>IRI</i></b><b class="about-stop"
+                            style="--x:78.10%;--step:7"><i>RUS</i></b><b class="about-stop"
+                            style="--x:81.80%;--step:8"><i>CN</i></b>
+                        <em>2024</em>
+                    </div>
+                    <div class="about-world" aria-hidden="true">
+                        <img class="about-map-background" src="images/svg-figma.svg" alt="">
+                        <i class="about-map-node" data-step="0" style="--x:9.960%;--y:13.590%;--step:0"></i><i class="about-map-node"
+                            data-step="1" style="--x:15.882%;--y:24.872%;--step:1"></i><i class="about-map-node"
+                            data-step="2" style="--x:31.629%;--y:62.564%;--step:2"></i><i class="about-map-node"
+                            data-step="3" style="--x:45.357%;--y:20.256%;--step:3"></i><i class="about-map-node"
+                            data-step="4" style="--x:47.645%;--y:26.410%;--step:4"></i><i class="about-map-node"
+                            data-step="5" style="--x:58.681%;--y:33.333%;--step:5"></i><i class="about-map-node"
+                            data-step="6" style="--x:65.276%;--y:33.333%;--step:6"></i><i class="about-map-node"
+                            data-step="7" style="--x:76.447%;--y:15.641%;--step:7"></i><i class="about-map-node"
+                            data-step="8" style="--x:76.447%;--y:25.641%;--step:8"></i>
+                    </div>
+                </section>
+
+                <section class="about-logo-section">
+                    <h2><span>Design Awards</span></h2>
+                    <div class="cv-logo-grid about-logo-grid">
+
+                        <basis core="print" datamembername="db.gl">
+                            <face filter="ord=2">
+ <div><img src="/@largeimg" alt="@name"></div>
+                            </face>
+                        </basis>
+                       
+                  
+                    </div>
+
+
+  <basis core="group" if="19 not in ([##db.gl2.rownumber##])">
+            <style>
+             .about-logo-section .about-load-more{
+                    display: none !important;
+                }
+            </style>
+            </basis>
+
+
+
+
+                    <button class="about-load-more" type="button">Load More <span>+</span></button>
+                </section>
+
+                <section class="about-logo-section">
+                    <h2><span>Branding Customer Sign</span></h2>
+                    <div class="cv-logo-grid about-logo-grid">
+                         <basis core="print" datamembername="db.gl">
+                            <face filter="ord=3">
+                        <div><img src="/@largeimg" alt="@name"></div>
+                       </face>
+                       </basis>
+                    </div>
+
+
+  <basis core="group" if="19 not in ([##db.gl3.rownumber##])">
+            <style>
+             .about-logo-section .about-load-more{
+                    display: none !important;
+                }
+            </style>
+            </basis>
+
+                    <button class="about-load-more" type="button">Load More <span>+</span></button>
+                </section>
+
+                <section class="about-copy-section">
+
+                     <basis core="print" datamembername="text.about">
+            <face filter="rownumber=2">
+                    <h2><span>@text</span></h2>
+                    <p>
+                        @largetext
+                    </p>
+                        </face>
+                        </basis>
+                </section>
+
+                <section class="about-members">
+                    <h2><span>Process Practice Current Members</span></h2>
+                    <div class="about-member-grid">
+                        <basis core="print" datamembername="list.current">
+                            <face>
+ <figure><img src="/@type_159" alt="Current member">
+                            <figcaption>@title</figcaption>
+                        </figure>
+                            </face>
+                        </basis>
+                       
+                      
+
+                    </div>
+                </section>
+
+                <section class="about-members">
+                    <h2><span>Process Practice Previous Members</span></h2>
+                    <div class="about-member-grid about-member-grid-previous">
+                         <basis core="print" datamembername="list.prv">
+                            <face>
+                        <figure><img src="/@type_159" alt="Previous member">
+                            <figcaption>@title</figcaption>
+                        </figure>
+                       </face>
+                       </basis>
+                    </div>
+
+                      <basis core="group" if="9 not in ([##list.prv.rownumber##])">
+            <style>
+             .about-members .about-load-more{
+                    display: none !important;
+                }
+            </style>
+            </basis>
+                    <button class="about-load-more" type="button">Load More <span>+</span></button>
+                </section>
+            </div>
+        </article>
+    </main>
+
+     <basis core="call" file="footer.inc" lid="2"></basis>
+
+   <basis core="call" file="menu.inc" lid="2"></basis>
+
+    <script src="js/app.js"></script>
+
+     <script src="js/script-saffar.js"></script>
+    <script>
+        document.querySelectorAll('.about-load-more').forEach(function (button) {
+            button.addEventListener('click', function () {
+                var grid = button.previousElementSibling;
+                grid.classList.toggle('is-expanded');
+                button.firstChild.nodeValue = grid.classList.contains('is-expanded') ? 'Show Less ' : 'Load More ';
+            });
+        });
+
+        // (function () {
+        //     var stops = Array.from(document.querySelectorAll('.about-stop'));
+        //     var nodes = Array.from(document.querySelectorAll('.about-map-node'));
+        //     var progress = document.querySelector('.about-timeline-progress');
+        //     if (!progress || !stops.length || stops.length !== nodes.length) return;
+
+        //     var lineStart = 4.94;
+        //     var lineWidth = 76.86;
+        //     var step = 0;
+
+        //     /* every passed country (and the currently active one) stays lit —
+        //        both here and on its matching map dot — until the sequence
+        //        reaches the last stop, at which point it pauses, resets and
+        //        starts filling again from the first country. */
+        //     function showStep() {
+        //         stops.forEach(function (stop, index) {
+        //             stop.classList.toggle('is-active', index <= step);
+        //         });
+        //         nodes.forEach(function (node, index) {
+        //             node.classList.toggle('is-active', index <= step);
+        //         });
+        //         var stopX = parseFloat(getComputedStyle(stops[step]).getPropertyValue('--x'));
+        //         progress.style.setProperty('--progress', String((stopX - lineStart) / lineWidth));
+
+        //         var atEnd = step >= stops.length - 1;
+        //         step = atEnd ? 0 : step + 1;
+        //         window.setTimeout(showStep, atEnd ? 2400 : 1400);
+        //     }
+        //     showStep();
+        // }());
+
+        // (function () {
+        //     var sheet = document.querySelector('.about-sheet');
+        //     var header = document.querySelector('header');
+        //     var ticking = false;
+        //     if (!sheet || !header) return;
+
+        //     function syncHeader() {
+        //         ticking = false;
+        //         var sheetTop = sheet.getBoundingClientRect().top;
+        //         document.body.classList.toggle('about-header-on-sheet', sheetTop <= header.offsetHeight);
+        //     }
+        //     syncHeader();
+        //     window.addEventListener('resize', syncHeader);
+        //     window.addEventListener('scroll', function () {
+        //         if (ticking) return;
+        //         ticking = true;
+        //         requestAnimationFrame(syncHeader);
+        //     }, {
+        //         passive: true
+        //     });
+        // }());
+  
+  
+  
+  </script>
+</body>
+
+</html>

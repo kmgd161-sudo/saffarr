@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <meta content="[##cms.seo.title|dbs.listt.title##]" name="description" />
+    <title>[##cms.seo.title|dbs.listt.title##]</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+ <basis core="dbsource" source="basiscore" name="dbs" lid="2" request="seo">
+    <member name="listt" type="list" request="product" id="[##cms.query.catid##]"></member>
+</basis>
+ <basis core="dbsource" source="basiscore" name="db" mid="11" lid="2" usedforid="2448209" >
+  <member type="view" name="cv" />
+  
+  </basis>
+<basis core="dbsource" source="media" name="db" lid="2" usedforid="2448209" sourcemid="11">
+    <member name="gl" type="list" format="4"></member>
+   
+</basis>
+
+<basis core="dbsource" source="basiscore" lid="2" mid="11" name="list" catid="222976" >
+  <member name="awards" type="list" perpage="200" typeid="144" propertyid="2732,2733"  />
+</basis>
+<basis core="dbsource" source="basiscore" lid="2" mid="11" name="list" catid="222975" >
+  <member name="awards1" type="list" perpage="200"  typeid="144" propertyid="2732,2733"  />
+</basis>
+<basis core="dbsource" source="basiscore" lid="2" mid="11" name="list" catid="222988" >
+  <member name="awards2" type="list" perpage="200" typeid="144" propertyid="2732,2733" />
+</basis>
+
+<basis core="dbsource" source="media" name="db" lid="2" usedforid="2448209" sourcemid="11">
+    <member name="gl4" type="list" format="4" postsql="select * from [db.gl4] where ord=4"></member>
+   
+</basis>
+<body class="gallery-page cv-page light">
+    <script>
+        try {
+            const savedTheme = localStorage.getItem('saffar-theme');
+            if (savedTheme === 'light' || savedTheme === 'dark') {
+                document.body.classList.toggle('light', savedTheme === 'light');
+            }
+        } catch (_) {}
+    </script>
+  <basis core="call" file="header.inc" lid="2"></basis>
+
+    <main class="cv-main">
+
+        <basis core="print" datamembername="db.gl">
+        <face filter="ord=1">
+     <section class="cv-hero cv-hero-desktop"
+      aria-label="Ahmad Saffar portrait" style="background-image:url('/@largeimg')"></section>
+
+        </face>
+        </basis>
+   
+
+
+ <basis core="print" datamembername="db.gl">
+        <face filter="ord=10">
+        <section class="cv-hero cv-hero-mobile" aria-label="Ahmad Saffar portrait" style="background-image:url('/@largeimg')"></section>
+</face>
+</basis>
+        <article class="cv-sheet ">
+            <div class="container">
+                <basis core="print" datamembername="db.cv">
+                    <face filter="typeid=144">
+   <div class="cv-bio ">
+    @answer
+   </div>
+                    </face>
+
+                </basis>
+             
+                <section class="cv-records " aria-label="Awards and experience ">
+                    <div class="cv-table">
+                        <div class="cv-table-row cv-table-head"><strong>Graphic design
+                                awards</strong><span>years</span><span>country</span></div>
+
+<basis core="print" datamembername="list.awards">
+    <face>
+    <div class="cv-table-row">
+        <span>
+            @type_144
+        </span>
+                                <span>@prp_2732</span>
+                                <span>@prp_2733</span>
+                                <!-- <span>01</span>
+                                <span>2013</span> -->
+                            </div>
+ 
+    </face>
+</basis>
+                    
+                                
+                        <button class="cv-table-load" type="button" aria-expanded="false">Load More
+                            <span>
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.09068 7.1021L6.09076 7.08947L6.09074 8.08947L7.09066 8.1021L7.09068 7.1021ZM14.1797 7.19162L14.1797 6.19162L7.09071 6.1021L7.09068 7.1021L7.09066 8.1021L14.1797 8.19162L14.1797 7.19162ZM7.09068 7.1021L8.0906 7.11472L8.09075 0.0253335L7.09083 0.0127103L6.09091 8.70833e-05L6.09076 7.08947L7.09068 7.1021Z" fill="black"/>
+<path d="M7.089 7.10054L8.08893 7.11316L8.08895 6.11317L7.08903 6.10054L7.089 7.10054ZM-3.09895e-07 7.01102L-2.58226e-05 8.01102L7.08898 8.10054L7.089 7.10054L7.08903 6.10054L2.52028e-05 6.01102L-3.09895e-07 7.01102ZM7.089 7.10054L6.08908 7.08792L6.08893 14.1773L7.08885 14.1899L8.08878 14.2025L8.08893 7.11316L7.089 7.10054Z" fill="black"/>
+</svg>
+
+                            </span></button>
+                    </div>
+                    <div class="cv-table">
+                        <div class="cv-table-row cv-table-head"><strong>Special Mention</strong><span>years</span><span>country</span></div>
+
+
+                      
+                                <basis core="print" datamembername="list.awards1">
+    <face>
+    <div class="cv-table-row">
+        <span>
+            @type_144
+        </span>
+                                <span>@prp_2732</span>
+                                <span>@prp_2733</span>
+                                <!-- <span>01</span>
+                                <span>2013</span> -->
+                            </div>
+ 
+    </face>
+</basis>
+                        <button class="cv-table-load" type="button" aria-expanded="false">Load More
+                            <span>
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.09068 7.1021L6.09076 7.08947L6.09074 8.08947L7.09066 8.1021L7.09068 7.1021ZM14.1797 7.19162L14.1797 6.19162L7.09071 6.1021L7.09068 7.1021L7.09066 8.1021L14.1797 8.19162L14.1797 7.19162ZM7.09068 7.1021L8.0906 7.11472L8.09075 0.0253335L7.09083 0.0127103L6.09091 8.70833e-05L6.09076 7.08947L7.09068 7.1021Z" fill="black"/>
+<path d="M7.089 7.10054L8.08893 7.11316L8.08895 6.11317L7.08903 6.10054L7.089 7.10054ZM-3.09895e-07 7.01102L-2.58226e-05 8.01102L7.08898 8.10054L7.089 7.10054L7.08903 6.10054L2.52028e-05 6.01102L-3.09895e-07 7.01102ZM7.089 7.10054L6.08908 7.08792L6.08893 14.1773L7.08885 14.1899L8.08878 14.2025L8.08893 7.11316L7.089 7.10054Z" fill="black"/>
+</svg>
+
+                            </span></button>
+                    </div>
+                    <div class="cv-table cv-table-short">
+                        <div class="cv-table-row cv-table-head"><strong>Competition</strong><span>years</span><span>country</span></div>
+                       <basis core="print" datamembername="list.awards2">
+    <face>
+    <div class="cv-table-row">
+        <span>
+            @type_144
+        </span>
+                                <span>@prp_2732</span>
+                                <span>@prp_2733</span>
+                                <!-- <span>01</span>
+                                <span>2013</span> -->
+                            </div>
+ 
+    </face>
+</basis>
+
+      <basis core="group" if="7 not in ([##list.awards2.rownumber##])">
+            <style>
+              .cv-table-short .cv-table-load{
+                    display: none !important;
+                }
+            </style>
+            </basis>
+
+
+                        <button class="cv-table-load" type="button" aria-expanded="false">Load More
+                            <span>
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.09068 7.1021L6.09076 7.08947L6.09074 8.08947L7.09066 8.1021L7.09068 7.1021ZM14.1797 7.19162L14.1797 6.19162L7.09071 6.1021L7.09068 7.1021L7.09066 8.1021L14.1797 8.19162L14.1797 7.19162ZM7.09068 7.1021L8.0906 7.11472L8.09075 0.0253335L7.09083 0.0127103L6.09091 8.70833e-05L6.09076 7.08947L7.09068 7.1021Z" fill="black"/>
+<path d="M7.089 7.10054L8.08893 7.11316L8.08895 6.11317L7.08903 6.10054L7.089 7.10054ZM-3.09895e-07 7.01102L-2.58226e-05 8.01102L7.08898 8.10054L7.089 7.10054L7.08903 6.10054L2.52028e-05 6.01102L-3.09895e-07 7.01102ZM7.089 7.10054L6.08908 7.08792L6.08893 14.1773L7.08885 14.1899L8.08878 14.2025L8.08893 7.11316L7.089 7.10054Z" fill="black"/>
+</svg>
+
+                            </span></button>
+                    </div>
+                </section>
+
+                <section class="cv-affiliations ">
+                    <h2>Professional Affiliations</h2>
+                    <div class="cv-logo-grid ">
+
+                       <basis core="print" datamembername="db.gl">
+                            <face filter="ord=3">
+                        <div><img src="/@largeimg" alt="Affiliation logo "></div>
+                      </face>
+                      </basis>
+                        
+                    </div>
+                    <button class="cv-load-more " type="button ">Load More <span>
+                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.09068 7.1021L6.09076 7.08947L6.09074 8.08947L7.09066 8.1021L7.09068 7.1021ZM14.1797 7.19162L14.1797 6.19162L7.09071 6.1021L7.09068 7.1021L7.09066 8.1021L14.1797 8.19162L14.1797 7.19162ZM7.09068 7.1021L8.0906 7.11472L8.09075 0.0253335L7.09083 0.0127103L6.09091 8.70833e-05L6.09076 7.08947L7.09068 7.1021Z" fill="black"/>
+<path d="M7.089 7.10054L8.08893 7.11316L8.08895 6.11317L7.08903 6.10054L7.089 7.10054ZM-3.09895e-07 7.01102L-2.58226e-05 8.01102L7.08898 8.10054L7.089 7.10054L7.08903 6.10054L2.52028e-05 6.01102L-3.09895e-07 7.01102ZM7.089 7.10054L6.08908 7.08792L6.08893 14.1773L7.08885 14.1899L8.08878 14.2025L8.08893 7.11316L7.089 7.10054Z" fill="black"/>
+</svg>
+
+                    </span></button>
+                </section>
+
+                <section class="cv-affiliations aff2">
+                    <h2>Professional Affiliations</h2>
+                    <div class="cv-logo-grid ">
+                         <basis core="print" datamembername="db.gl">
+                            <face filter="ord=4">
+                        <div><img src="/@largeimg" alt="Affiliation logo "></div>
+                       </face>
+                       </basis>
+                    </div>
+
+
+      <basis core="group" if="10 not in ([##db.gl4.rownumber##])">
+            <style>
+              .aff2 .cv-load-more{
+                    display: none !important;
+                }
+            </style>
+            </basis>
+
+                    <button class="cv-load-more " type="button ">Load More <span>
+                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.09068 7.1021L6.09076 7.08947L6.09074 8.08947L7.09066 8.1021L7.09068 7.1021ZM14.1797 7.19162L14.1797 6.19162L7.09071 6.1021L7.09068 7.1021L7.09066 8.1021L14.1797 8.19162L14.1797 7.19162ZM7.09068 7.1021L8.0906 7.11472L8.09075 0.0253335L7.09083 0.0127103L6.09091 8.70833e-05L6.09076 7.08947L7.09068 7.1021Z" fill="black"/>
+<path d="M7.089 7.10054L8.08893 7.11316L8.08895 6.11317L7.08903 6.10054L7.089 7.10054ZM-3.09895e-07 7.01102L-2.58226e-05 8.01102L7.08898 8.10054L7.089 7.10054L7.08903 6.10054L2.52028e-05 6.01102L-3.09895e-07 7.01102ZM7.089 7.10054L6.08908 7.08792L6.08893 14.1773L7.08885 14.1899L8.08878 14.2025L8.08893 7.11316L7.089 7.10054Z" fill="black"/>
+</svg>
+
+                    </span></button>
+                </section>
+            </div>
+        </article>
+    </main>
+
+
+
+     <basis core="call" file="footer.inc" lid="2"></basis>
+
+   <basis core="call" file="menu.inc" lid="2"></basis>
+
+
+    <script src="js/app.js"></script>
+    <script>
+        document.querySelectorAll('.cv-table-load').forEach(function(button) {
+            var table = button.closest('.cv-table');
+            button.addEventListener('click', function() {
+                var expanded = table.classList.toggle('is-expanded');
+                button.setAttribute('aria-expanded', String(expanded));
+                button.innerHTML = (expanded ? 'Load Less' : 'Load More') + ' <span>' + (expanded ? '−' : '+') + '</span>';
+            });
+        });
+
+        document.querySelectorAll('.cv-load-more').forEach(function(button) {
+            var grid = button.closest('.cv-affiliations').querySelector('.cv-logo-grid');
+            button.setAttribute('aria-expanded', 'false');
+            button.addEventListener('click', function() {
+                var expanded = grid.classList.toggle('is-expanded');
+                button.setAttribute('aria-expanded', String(expanded));
+                button.innerHTML = (expanded ? 'Load Less' : 'Load More') + ' <span>' + (expanded ? '−' : '+') + '</span>';
+            });
+        });
+
+        (function() {
+            var sheet = document.querySelector('.cv-sheet');
+            var header = document.querySelector('header');
+            var ticking = false;
+
+            function syncHeader() {
+                ticking = false;
+                var threshold = sheet.offsetTop - (header ? header.offsetHeight : 80);
+                document.body.classList.toggle('cv-header-on-sheet', window.scrollY >= threshold);
+            }
+            syncHeader();
+            window.addEventListener('resize', syncHeader);
+            window.addEventListener('scroll', function() {
+                if (ticking) return;
+                ticking = true;
+                requestAnimationFrame(syncHeader);
+            }, {
+                passive: true
+            });
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,257 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SAFFAR STUDIO v6.3</title>
+    <link rel="stylesheet" href="css/style.css">
+     <style>
+        /* Home: on desktop the glass orb follows the mouse over the whole page and acts as the cursor */
+        @media (hover: hover) and (pointer: fine) {
+            .home .orb {
+                animation: none !important;
+                transform: translate(-50%, -50%) !important;
+                backdrop-filter: blur(3.5px) brightness(1.25) saturate(1.05);
+                -webkit-backdrop-filter: blur(3.5px) brightness(1.25) saturate(1.05);
+                pointer-events: none;
+                translate: var(--orb-x, 0px) var(--orb-y, 0px) !important;
+            }
+            .home .orb::before {
+                animation: none !important;
+            }
+        }
+        @media (hover: hover) and (pointer: fine) {
+            body.home-page,
+            body.home-page * {
+                cursor: none !important;
+            }
+            /* keep a hand on links and buttons so they are still clearly clickable */
+            body.home-page a,
+            body.home-page a *,
+            body.home-page button,
+            body.home-page button *,
+            body.home-page .theme,
+            body.home-page .theme * {
+                cursor: pointer !important;
+            }
+            /* the open menu sits above the orb, so it gets the normal cursor back */
+            body.home-page .overlay,
+            body.home-page .overlay * {
+                cursor: auto !important;
+            }
+            body.home-page .overlay a,
+            body.home-page .overlay a *,
+            body.home-page .overlay button,
+            body.home-page .overlay button *,
+            body.home-page .overlay .mini-logo {
+                cursor: pointer !important;
+            }
+            .circle-hit {
+                display: none !important; /* older circle-only version, no longer used */
+            }
+        }
+        /* orb: glass lens (refraction + rainbow rim), like the Figma design.
+           On desktop the glass is drawn by .orb-lens (a fixed layer that tracks the orb),
+           so the lens filter is never affected by the parents' transforms. */
+        .home .orb,
+        .orb-lens {
+            background: radial-gradient(circle, rgba(0, 0, 0, .12) 0 55%, rgba(0, 0, 0, 0) 72%);
+            border: 0;
+            box-shadow: none !important; /* a shadow shifts the SVG lens in Chrome */
+            backdrop-filter: blur(2px) brightness(1.15) contrast(1.1) !important;
+            -webkit-backdrop-filter: blur(2px) brightness(1.15) contrast(1.1) !important;
+        }
+        .orb-lens {
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 6; /* above the header, below the open menu (20) */
+            border-radius: 50%;
+            overflow: hidden;
+            pointer-events: none;
+            backdrop-filter: url(#orbLens) brightness(1.15) contrast(1.1) !important;
+        }
+        html.has-lens .home .orb {
+            visibility: hidden;
+        }
+        /* iridescent rim */
+        .home .orb::before,
+        .orb-lens::before {
+            content: "";
+            position: absolute;
+            display: block !important;
+            inset: 0 !important;
+            border-radius: 50%;
+            background: conic-gradient(from 200deg, #ff5a36, #ffb347 12%, #fff3c4 18%, #6fd3ff 32%,
+                #3a6bff 45%, #9b5cff 58%, #ff4f8b 70%, #ffb347 82%, #6fd3ff 92%, #ff5a36) !important;
+            -webkit-mask: radial-gradient(circle, transparent 58%, #000 76%, #000 100%);
+            mask: radial-gradient(circle, transparent 58%, #000 76%, #000 100%);
+            filter: blur(1.5px) saturate(1.3) !important;
+            mix-blend-mode: screen !important;
+            opacity: .85 !important;
+            animation: none !important;
+            pointer-events: none;
+        }
+        /* reflections inside the glass */
+        .home .orb::after,
+        .orb-lens::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background:
+                radial-gradient(ellipse 34% 14% at 42% 20%, rgba(255, 255, 255, .9), rgba(255, 255, 255, 0) 100%),
+                radial-gradient(ellipse 22% 9% at 60% 32%, rgba(140, 190, 255, .7), rgba(140, 190, 255, 0) 100%),
+                radial-gradient(ellipse 30% 12% at 52% 80%, rgba(70, 120, 255, .65), rgba(70, 120, 255, 0) 100%),
+                radial-gradient(circle at 78% 50%, rgba(255, 255, 255, .25), rgba(255, 255, 255, 0) 30%) !important;
+            mix-blend-mode: screen;
+            filter: blur(1px) !important;
+            pointer-events: none;
+        }
+        @media (hover: hover) and (pointer: fine) {
+            .home .orb {
+                width: clamp(64px, 6vw, 96px);
+                height: clamp(64px, 6vw, 96px);
+            }
+        }
+    </style>
+</head>
+<basis core="dbsource" source="basiscore" mid="1" name="text" lid="2" usedforid="2448210">
+    <member name="slider" type="view" ></member>
+</basis>
+<basis core="dbsource" source="media" name="db" lid="2" usedforid="2448210" sourcemid="1">
+    <member name="video" type="list" format="3"></member>
+   
+</basis>
+
+<body class="home-page">
+     <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <filter id="orbLens" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+            <feImage id="orbLensMap" x="0" y="0" width="120" height="120" preserveAspectRatio="none" result="map"
+                href="data:image/png;base64,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" />
+            <feDisplacementMap in="SourceGraphic" in2="map" scale="60" xChannelSelector="R" yChannelSelector="G" result="dR" />
+            <feDisplacementMap in="SourceGraphic" in2="map" scale="66" xChannelSelector="R" yChannelSelector="G" result="dG" />
+            <feDisplacementMap in="SourceGraphic" in2="map" scale="72" xChannelSelector="R" yChannelSelector="G" result="dB" />
+            <feColorMatrix in="dR" type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="r" />
+            <feColorMatrix in="dG" type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0" result="g" />
+            <feColorMatrix in="dB" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0" result="b" />
+            <feComposite in="r" in2="g" operator="arithmetic" k2="1" k3="1" result="rg" />
+            <feComposite in="rg" in2="b" operator="arithmetic" k2="1" k3="1" />
+        </filter>
+    </svg>
+    <script>
+        try {
+            const savedTheme = localStorage.getItem('saffar-theme');
+            if (savedTheme === 'light' || savedTheme === 'dark') {
+                document.body.classList.toggle('light', savedTheme === 'light');
+            }
+        } catch (_) {}
+    </script>
+
+  <basis core="call" file="header-def.inc" lid="2"></basis>
+
+    <section class="home">
+
+
+        <basis core="print" datamembername="db.video">
+            <face filter="ord=1">
+  <video class="video" autoplay muted loop playsinline>
+      <source src="/@largeimg" type="video/mp4">
+    </video>
+
+            </face>
+        </basis>
+      
+
+ <basis core="print" datamembername="text.slider">
+            <face filter="prpid=7244">
+        <div class="visual burst-wrap" id="burstWrap">
+            <div class="phrase hero-text">@answer</div>
+            <div class="orb"></div>
+        </div>
+</face>
+</basis>
+        <div class="links hidden-xs foot-nav">
+            <a href="/Architecture-Projects-Ahmad-Saffar">Architecture</a>
+            <a href="/Graphic-Design">Graphic Design</a>
+            <a href="/Photography-Ahmad-Saffar">Photography</a>
+        
+            <a href="/Videography-Ahmad-Saffar">Videography</a>
+          
+        </div>
+
+        <a class="mobile-tap" href="/Architecture-Projects-Ahmad-Saffar">Tap Here</a>
+
+        <footer class="footer-home">SAFFARSTUDIO ©ALL RIGHTS RESERVED</footer>
+    </section>
+
+  <basis core="call" file="menu.inc" lid="2" ></basis>
+
+
+    <script src="js/app.js"></script>
+ <script>
+        /* Home: orb follows the mouse anywhere on the page (desktop only) */
+        (() => {
+            const home = document.querySelector('.home');
+            const video = document.querySelector('.home .video');
+            const orb = document.querySelector('.home .orb');
+            if (!home || !video || !orb) return;
+            if (!matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+            const EASE = 0.12;
+            let base = { x: 0, y: 0, r: 0 };
+            const cur = { x: 0, y: 0 }, tgt = { x: 0, y: 0 };
+
+            function measure() {
+                orb.style.setProperty('--orb-x', '0px');
+                orb.style.setProperty('--orb-y', '0px');
+                const r = orb.getBoundingClientRect();
+                base = { x: r.left + r.width / 2, y: r.top + r.height / 2, r: r.width / 2 };
+            }
+
+            addEventListener('mousemove', e => {
+                tgt.x = e.clientX - base.x;
+                tgt.y = e.clientY - base.y;
+            });
+            document.addEventListener('mouseleave', () => { tgt.x = 0; tgt.y = 0; }); // mouse left the window: back to start
+
+            /* glass lens: a fixed layer that sits exactly on the orb */
+            const lens = document.createElement('div');
+            lens.className = 'orb-lens';
+            lens.setAttribute('aria-hidden', 'true');
+            document.body.appendChild(lens);
+            document.documentElement.classList.add('has-lens');
+            let lensSize = 0;
+
+            function sizeLens(w) {
+                lensSize = w;
+                lens.style.width = lens.style.height = w + 'px';
+                const map = document.getElementById('orbLensMap');
+                if (!map) return;
+                map.setAttribute('width', w);
+                map.setAttribute('height', w);
+                const disp = map.parentNode.querySelectorAll('feDisplacementMap');
+                [0.5, 0.55, 0.6].forEach((k, i) => disp[i] && disp[i].setAttribute('scale', (w * k).toFixed(1)));
+            }
+
+            measure();
+            addEventListener('resize', measure);
+            (function tick() {
+                cur.x += (tgt.x - cur.x) * EASE;
+                cur.y += (tgt.y - cur.y) * EASE;
+                orb.style.setProperty('--orb-x', cur.x.toFixed(2) + 'px');
+                orb.style.setProperty('--orb-y', cur.y.toFixed(2) + 'px');
+                const r = orb.getBoundingClientRect();
+                if (Math.round(r.width) !== lensSize) sizeLens(Math.round(r.width));
+                lens.style.left = r.left + 'px';
+                lens.style.top = r.top + 'px';
+                requestAnimationFrame(tick);
+            })();
+        })();
+
+        document.querySelectorAll('.circle-hit').forEach(el => el.remove()); // older circle-only version
+    </script>
+</body>
+
+</html>

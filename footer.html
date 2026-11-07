@@ -1,0 +1,360 @@
+  
+  <basis core="dbsource" source="basiscore" name="db" mid="5" lid="2" usedforid="9765" >
+  <member type="view" name="footer"/>
+  
+  </basis>
+    <basis core="dbsource" source="basiscore" name="db" mid="5" lid="2" usedforid="9765" >
+  <member type="view" name="footer240" postsql="select * from [db.footer240] where typeid=240"/>
+  
+  </basis>
+
+  <style>
+      [data-bc-title-container]{
+        width: 100% !important;
+        margin-left: 0 !important;
+
+  float: none !important;
+      }
+     footer [data-bc-title-container] [data-bc-question-title],footer [data-bc-part-related-cell]{
+         margin-left: 0 !important;
+         width: 100% !important;
+         color: #fff !important;
+      }
+      .footer [data-bc-title-container] [data-bc-question-title],.footer [data-bc-part-related-cell]{
+         margin-left: 0 !important;
+         width: 100% !important;
+         color: #fff !important;
+      }
+      [data-bc-question]{
+        clear: none !important;
+
+  direction: ltr;
+  width: 100%;
+  float: left;
+      }
+      [data-bc-part-container], [data-bc-btn-container]{
+        width: 100% !important;
+      }
+    [data-bc-answer-container] _textarea,  [data-bc-answer-container] input[type="text"], [data-bc-answer-container] input[type="password"], [data-bc-answer-container] input[type="time"], [data-bc-answer-container] input[type="color"], [data-bc-answer-container] input[type="file"], [data-bc-answer-container] select{
+  width: 100% !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-bottom: 1px solid var(--line) !important;
+  border-radius: none !important;
+      }
+      [data-bc-part-container], [data-bc-btn-container]{
+        width: 100% !important;
+      }
+      [data-bc-answer-container]{
+        width: 96% !important;
+      }
+     [data-bc-items] div:first-child{
+      display: none !important;
+     }
+       [data-bc-items] [data-sys-text]{
+        float: left;
+        margin-right: 20px;
+       }
+       [data-bc-part-related-cell] [data-bc-part-radio]{
+        border: unset !important;
+       }
+       legend {
+  color: #000;
+  text-align: right;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.w100 {
+  width: 100% !important;
+}
+#requestBox {
+  display: flex;
+  justify-content: space-between;
+}
+.qclass8 {
+  width: 100%;
+}
+[data-bc-title-container] [data-bc-question-title] {
+  margin-left: 10px;
+  width: 100%;
+
+  color: var(--fg);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: norma;
+}
+[data-bc-title-container],[data-bc-title-container]{
+    line-height: 20px !important;
+}
+[data-bc-answer-container] input[type="text"], [data-bc-answer-container] input[type="password"], [data-bc-answer-container] input[type="time"], [data-bc-answer-container] input[type="file"], [data-bc-answer-container] select, [data-bc-answer-container] textarea{
+    margin-top: 0 !important;
+    border-radius: unset !important;
+}
+    </style>
+  <section class="footer ">
+        <div class="container ">
+            <div class="contact ">
+                <div>
+                    <h2>Let’s Talk</h2>
+                    <p class="lead ">Whether you&rsquo;re ready to start a new project, have questions about our
+                        approach, or just want to learn more about how we can create something extraordinary together,
+                        we&rsquo;re here to connect.
+                    </p>
+                    <div class="contact-info ">
+                                         <basis core="print" datamembername="db.footer">
+<face filter="typeid=242">
+                        <div class="row "><span class="k ">Email</span><span>@answer</span></div>
+                        </face>
+                        </basis>
+                                                 <basis core="print" datamembername="db.footer240">
+<face filter="rownumber=2">
+                        <div class="row "><span class="k ">Phone</span><span>@answer</span></div>
+                        </face>
+                        </basis>
+                                                 <basis core="print" datamembername="db.footer240">
+<face filter="rownumber=1">
+                        <div class="row "><span class="k ">Mobile</span><span>@answer</span></div>
+                        </face>
+                        </basis>
+                    </div>
+                </div>
+                <form >
+          
+                   
+                    <div class="requestBox2 frm-contact">
+
+
+                        <Basis core="schema" run="atclient" schemaUrl="/schema/domainform"
+                            paramUrl="/088F2E87-FD91-4B6C-A54C-A446F2EF3B2A/C34982DE-6F7B-4A27-9D18-3D69BE4AAE6C/fa/contact"
+                            displayMode="new" button="[data-btn-add]" resultSourceId="demo.data">
+                        </Basis>
+
+                        <basis core="callback" run="AtClient" triggers="demo.data" method="onSource"></basis>
+
+                        <Basis core="api" url="/schema/domainform/088F2E87-FD91-4B6C-A54C-A446F2EF3B2A/fa/editobject"
+                            method="post" run="atclient"
+                            body="object_edit={##edit.object.value##}&captcha={##edit.object.captcha##}&captchaid={##edit.object.captchaid##}"
+                            content-type="application/x-www-form-urlencoded" triggers="edit.object"
+                            if="{##edit.object##}" OnProcessed="OnProcessedEditObject1">
+                        </Basis>
+                         <div data-bc-title-container=""><span data-sys-text="">CAPTCHA Code </span></div>
+
+<div class="row">
+ <div class="col-md-6 col-12 pl-md-10">
+                        <div data-bc-question="" class="qclass8">
+                           
+                            <div id="requestBox" class="captchaContainerclass  captcha-sefaresh2"
+                                style="margin-bottom: 20px;" data-bc-answer-container="" data-bc-schema-info-multi="0"
+                                data-bc-schema-info-word="58" data-bc-schema-info-part="1"
+                                data-bc-schema-info-part-0-type="text">
+                                <basis core="dbsource" source="trust_login" name="captcha2">
+                                    <member name="code2" type="scalar" request="captcha"></member>
+                                </basis>
+                                <basis datamembername="captcha2.code2" core="print">
+                                    <face>
+                                        <span class="captcha-sefaresh">
+
+                                            <img src="/@captcha" width="88" height="44" class="captcha-sefaresh" alt=""
+                                            title="" />
+                                            <input type="hidden" name="captchaid" value="@captcha" />
+                                        </span>
+
+<button type="button" class="refresh-captcha refressh refressh1">
+ <svg width="19" height="22" viewBox="0 0 19 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+ <path d="M19 11.8296C19 17.1627 14.7391 21.5 9.5 21.5C4.26088 21.5 0 17.1627 0 11.8296C0 9.7132 0.658811 7.70131 1.90799 6.01458C2.05059 5.82297 2.31867 5.78233 2.5069 5.93039C2.69514 6.07555 2.73221 6.34844 2.58961 6.54005C1.45452 8.07582 0.852747 9.90481 0.852747 11.8325C0.852747 16.6837 4.73146 20.632 9.49715 20.632C14.2628 20.632 18.1416 16.6837 18.1416 11.8325C18.1416 6.98133 14.3512 3.12594 9.65686 3.03885L11.3509 4.76332C11.5192 4.93461 11.5192 5.21041 11.3509 5.37879C11.2682 5.46298 11.157 5.50653 11.0486 5.50653C10.9403 5.50653 10.829 5.46298 10.7463 5.37879L8.33924 2.92853C8.24797 2.83853 8.20519 2.71079 8.2166 2.58015C8.22801 2.45241 8.29646 2.33338 8.39913 2.2608L10.8062 0.576974C11.0002 0.440525 11.2682 0.489879 11.4023 0.690197C11.5363 0.887611 11.4878 1.16051 11.2911 1.29696L10.0333 2.17661C15.0215 2.46112 18.9972 6.68231 18.9972 11.8296H19Z" fill="black"></path>
+ </svg>
+ </button>
+                                       
+                                        <input type="text" class="codeinputm" name="captcha"
+                                            placeholder="CAPTCHA Code" />
+
+                                        
+                                    </face>
+                                </basis>
+
+
+
+                            </div>
+                        </div>
+ </div>
+
+
+<div class="col-md-6 col-12 pr-md-10">
+ <button class="send-btn "  data-btn-add><span>Send</span></button>
+   
+ </div>
+      
+       </div>                 
+                    </div> 
+                   
+                   
+                   
+                   
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container ">
+            <div class="page-footer ">
+                <nav class="foot-nav "><a href="/Architecture-Projects-Ahmad-Saffar">Architecture</a>
+                    <a href="/Graphic-Design">Graphic Design</a><a
+                        href="/Photography-Ahmad-Saffar">Photography</a>
+                       
+                            <a href="/Videography-Ahmad-Saffar">Videography</a>
+                            <a href="/about">about us</a>
+                            <a href="/contact-us">contact
+                        us</a></nav>
+                <div class="social ">
+                    <div class="title-social ">Follow Us On Social Network</div>
+                    <div class="icons ">
+                        
+                             <basis core="print" datamembername="db.footer">
+  <face filter="text = 'instagram'">
+                        <span title="Instagram "><svg width="24 " height="24 " viewBox="0 0 24 24 "
+                                fill="none " xmlns="http://www.w3.org/2000/svg ">
+                                <path
+                                    d="M7.8 2H16.2C19.4 2 22 4.6 22 7.8V16.2C22 17.7383 21.3889 19.2135 20.3012 20.3012C19.2135 21.3889 17.7383 22 16.2 22H7.8C4.6 22 2 19.4 2 16.2V7.8C2 6.26174 2.61107 4.78649 3.69878 3.69878C4.78649 2.61107 6.26174 2 7.8 2ZM7.6 4C6.64522
+            4 5.72955 4.37928 5.05442 5.05442C4.37928 5.72955 4 6.64522 4 7.6V16.4C4 18.39 5.61 20 7.6 20H16.4C17.3548 20 18.2705 19.6207 18.9456 18.9456C19.6207 18.2705 20 17.3548 20 16.4V7.6C20 5.61 18.39 4 16.4 4H7.6ZM17.25 5.5C17.5815 5.5 17.8995 5.6317
+            18.1339 5.86612C18.3683 6.10054 18.5 6.41848 18.5 6.75C18.5 7.08152 18.3683 7.39946 18.1339 7.63388C17.8995 7.8683 17.5815 8 17.25 8C16.9185 8 16.6005 7.8683 16.3661 7.63388C16.1317 7.39946 16 7.08152 16 6.75C16 6.41848 16.1317 6.10054 16.3661
+            5.86612C16.6005 5.6317 16.9185 5.5 17.25 5.5ZM12 7C13.3261 7 14.5979 7.52678 15.5355 8.46447C16.4732 9.40215 17 10.6739 17 12C17 13.3261 16.4732 14.5979 15.5355 15.5355C14.5979 16.4732 13.3261 17 12 17C10.6739 17 9.40215 16.4732 8.46447 15.5355C7.52678
+            14.5979 7 13.3261 7 12C7 10.6739 7.52678 9.40215 8.46447 8.46447C9.40215 7.52678 10.6739 7 12 7ZM12 9C11.2044 9 10.4413 9.31607 9.87868 9.87868C9.31607 10.4413 9 11.2044 9 12C9 12.7956 9.31607 13.5587 9.87868 14.1213C10.4413 14.6839 11.2044 15
+            12 15C12.7956 15 13.5587 14.6839 14.1213 14.1213C14.6839 13.5587 15 12.7956 15 12C15 11.2044 14.6839 10.4413 14.1213 9.87868C13.5587 9.31607 12.7956 9 12 9Z "
+                                    fill="#D9D9D9 " />
+                            </svg></span>
+                            </face>
+                            </basis>
+                            
+                             <basis core="print" datamembername="db.footer">
+  <face filter="text = 'telegram'">
+                            
+                            <span title="Telegram "><svg width="24 " height="24 " viewBox="0 0 24 24 "
+                                fill="none " xmlns="http://www.w3.org/2000/svg ">
+                                <path
+                                    d="M21.5964 5.4036L18.67 19.1037C18.4517 20.0685 17.8916 20.2859 17.0822 19.8503L12.6926 16.6129L10.5437 18.6671C10.3263 18.8854 10.1081 19.1037 9.60971 19.1037L9.95257 14.5885L18.1408 7.14786C18.4827 6.805 18.0471 6.68041 17.6115
+            6.96146L7.43083 13.3745L3.04023 12.0359C2.07538 11.7249 2.07538 11.07 3.25851 10.6354L20.3196 4.00317C21.1599 3.75399 21.8765 4.19053 21.5964 5.4036Z "
+                                    fill="#D9D9D9 " />
+                            </svg></span>
+                            
+                            </face>
+                            </basis>
+                            
+                             <basis core="print" datamembername="db.footer">
+  <face filter="text = 'linkedin'">
+                            
+                            <span title="Behance "><svg width="23 " height="24 " viewBox="0 0 23 24 "
+                                fill="none " xmlns="http://www.w3.org/2000/svg ">
+                                <path d="M7.02217 5.43896C7.6235 5.43896 8.17966 5.48663 8.68783 5.62772C9.19694 5.7221 9.61382 5.91086 9.98366 6.14633C10.3544 6.38212 10.632 6.71229 10.8165 7.13684C11.0019 7.56107 11.095 8.08063 11.095 8.64595C11.095 9.3066 10.9558 9.87192
+            10.632 10.2962C10.3544 10.7213 9.89144 11.0979 9.33622 11.381C10.1229 11.6175 10.7243 12.0417 11.095 12.607C11.4658 13.1723 11.6964 13.8807 11.6964 14.6824C11.6964 15.3431 11.5571 15.9084 11.3256 16.3803C11.095 16.8522 10.7243 17.2764 10.3074
+            17.5595C9.85434 17.8627 9.35381 18.0857 8.82711 18.2192C8.27189 18.3613 7.71667 18.4557 7.16145 18.4557H0.958984V5.43896H7.02217ZM6.6514 10.7204C7.16051 10.7204 7.57739 10.5793 7.90111 10.3438C8.22483 10.1083 8.36411 9.68317 8.36411 9.16456C8.36411
+            8.88142 8.31706 8.59828 8.22483 8.41048C8.13261 8.22267 7.99334 8.07967 7.80889 7.93858C7.6203 7.83128 7.41747 7.75198 7.20662 7.70311C6.97512 7.65544 6.74456 7.65545 6.46601 7.65545H3.78214V10.7213L6.6514 10.7204ZM6.79067 16.2859C7.06828 16.2859
+            7.34589 16.2382 7.57739 16.1915C7.80889 16.1438 8.04039 16.0504 8.22483 15.9084C8.41267 15.7695 8.57027 15.593 8.68783 15.3898C8.78005 15.1543 8.87322 14.8712 8.87322 14.5413C8.87322 13.8807 8.68783 13.4088 8.318 13.0789C7.94722 12.7958 7.43812
+            12.6547 6.83678 12.6547H3.78214V16.2868L6.79067 16.2859ZM15.7231 16.2382C16.0933 16.6157 16.6485 16.8045 17.3888 16.8045C17.8979 16.8045 18.3609 16.6634 18.7307 16.4279C19.1015 16.1445 19.333 15.8613 19.4252 15.5785H21.6931C21.3224 16.7101 20.7672
+            17.5119 20.0275 18.0305C19.2859 18.5024 18.407 18.7855 17.3427 18.7855C16.6618 18.7865 15.9867 18.6585 15.3524 18.408C14.7813 18.1922 14.2722 17.8358 13.8711 17.3708C13.4404 16.9373 13.1226 16.4024 12.9461 15.814C12.7146 15.201 12.6214 14.5413
+            12.6214 13.7863C12.6214 13.0789 12.7146 12.4192 12.9461 11.8053C13.1681 11.2138 13.4979 10.6699 13.9182 10.2018C14.3341 9.77755 14.8432 9.40098 15.3985 9.16456C16.0165 8.91317 16.6767 8.78499 17.3427 8.78704C18.1294 8.78704 18.8239 8.92909 19.4252
+            9.25894C20.0275 9.58879 20.4895 9.9663 20.8594 10.5326C21.2302 11.0512 21.5087 11.6642 21.6931 12.3248C21.7854 12.9845 21.8315 13.6452 21.7854 14.3993H15.0747C15.0747 15.1543 15.3523 15.8617 15.7231 16.2392M18.6385 11.2876C18.3148 10.9578 17.8057
+            10.769 17.2034 10.769C16.8503 10.7636 16.501 10.8444 16.1852 11.0045C15.9076 11.1465 15.7231 11.3353 15.5377 11.524C15.3663 11.7056 15.2534 11.9357 15.214 12.1837C15.167 12.4202 15.1209 12.608 15.1209 12.7967H19.2859C19.1937 12.0894 18.9622 11.6184
+            18.6385 11.2876ZM14.5656 6.33509H19.7489V7.60873H14.5666L14.5656 6.33509Z " fill="#D9D9D9 " />
+                            </svg></span>
+                            
+                            </face>
+                            </basis>
+                            
+                             <basis core="print" datamembername="db.footer">
+  <face filter="text = 'Pintrest'">
+                            
+                            <span title="Pintrest "><svg width="20 " height="20 " viewBox="0 0 20 20 "
+                                fill="none " xmlns="http://www.w3.org/2000/svg ">
+                                <path
+                                    d="M10.0317 19.0891H9.06759C9.04126 19.0818 9.01519 19.0694 8.98846 19.0679C8.53939 19.0422 8.09461 18.984 7.65348 18.8958C6.78622 18.7223 5.95937 18.433 5.17463 18.0258C3.84995 17.3384 2.74322 16.3937 1.8581 15.1918C1.05928 14.1069
+            0.516993 12.9046 0.227342 11.5889C0.115235 11.0794 0.0465372 10.5636 0.0216392 10.0421C0.0194231 9.99545 0.00743031 9.94916 0 9.90274C0 9.65956 0 9.41625 0 9.17308C0.00743031 9.129 0.0195535 9.08519 0.0217695 9.04086C0.0516211 8.43859 0.138699
+            7.84479 0.282482 7.25908C0.507738 6.34178 0.860482 5.47664 1.34489 4.66575C2.13654 3.34046 3.18669 2.26722 4.49351 1.44602C5.46493 0.835663 6.51495 0.418676 7.63823 0.189058C8.41594 0.0299823 9.20251 -0.0253031 9.99547 0.0104238C10.5999 0.0376753
+            11.1966 0.120604 11.7846 0.262207C12.6186 0.463008 13.4116 0.770599 14.162 1.18667C15.191 1.75726 16.084 2.49344 16.8432 3.39183C17.3687 4.01366 17.8055 4.69287 18.1577 5.42709C18.7098 6.57766 19.0108 7.7929 19.0769 9.06433C19.11 9.70233 19.0771
+            10.3397 18.9804 10.9732C18.8325 11.9423 18.5514 12.87 18.113 13.7461C17.088 15.7948 15.5314 17.2974 13.4486 18.2521C12.8427 18.5299 12.2107 18.7321 11.5597 18.8724C11.0796 18.9759 10.5937 19.041 10.103 19.0681C10.0789 19.0694 10.0554 19.0818 10.0317
+            19.0891ZM9.00697 12.0997C9.02288 12.1175 9.02953 12.123 9.03383 12.1301C9.15441 12.3286 9.31826 12.4859 9.5078 12.6162C9.96757 12.9321 10.477 13.0819 11.0352 13.0727C11.4068 13.0665 11.7703 13.0125 12.1251 12.903C12.8868 12.6679 13.5075 12.2247
+            14.0121 11.6141C14.5147 11.0061 14.8399 10.3077 15.0468 9.55121C15.1835 9.05103 15.2591 8.54094 15.2887 8.02303C15.3187 7.49952 15.2971 6.98148 15.1582 6.47269C14.8842 5.46895 14.3262 4.65505 13.5039 4.02462C12.569 3.30773 11.4964 2.98841 10.3293
+            2.96259C9.75418 2.94981 9.18426 3.00523 8.62333 3.1364C7.53251 3.39144 6.57726 3.89384 5.81429 4.72364C4.88954 5.72921 4.4123 6.90976 4.48361 8.28955C4.51307 8.85923 4.63482 9.40804 4.90349 9.91656C5.17515 10.4307 5.56465 10.8219 6.10681 11.0491C6.32007
+            11.1386 6.47962 11.058 6.53776 10.8332C6.58678 10.6441 6.62393 10.4512 6.6852 10.2661C6.75455 10.0573 6.71035 9.89205 6.56618 9.72867C6.32268 9.45276 6.17746 9.12418 6.10811 8.763C6.01543 8.27977 6.03824 7.79772 6.148 7.3214C6.4005 6.22626 7.00783
+            5.38889 7.99202 4.83708C8.49376 4.5557 9.038 4.40862 9.61065 4.36337C10.1656 4.31956 10.7123 4.35998 11.2471 4.52166C12.4205 4.87646 13.1747 5.79023 13.3025 7.0086C13.3387 7.35361 13.3267 7.6981 13.2984 8.04246C13.246 8.68242 13.1171 9.30555 12.8716
+            9.90131C12.6744 10.3801 12.4161 10.8199 12.0263 11.1697C11.6252 11.5297 11.1618 11.7179 10.6139 11.6624C9.84543 11.5845 9.34616 10.8837 9.53244 10.1352C9.60114 9.85945 9.68209 9.58654 9.75965 9.31298C9.89222 8.84527 10.0338 8.37991 10.1575 7.90986C10.2357
+            7.6127 10.2678 7.30771 10.2155 6.9996C10.1346 6.52342 9.84543 6.19379 9.42085 6.10395C9.0874 6.03341 8.77246 6.08856 8.48281 6.26876C8.15314 6.47374 7.93153 6.77103 7.79166 7.1266C7.49719 7.87491 7.54398 8.62192 7.8193 9.36527C7.83468 9.40687
+            7.84094 9.45915 7.8309 9.50179C7.52938 10.7891 7.23191 12.0774 6.91906 13.3619C6.76354 14.0001 6.66017 14.642 6.66851 15.3C6.6749 15.8109 6.71622 16.3188 6.78922 16.8245C6.79717 16.8797 6.81542 16.9263 6.87487 16.9425C6.936 16.9591 6.97798 16.9301
+            7.01435 16.8836C7.32525 16.4861 7.60903 16.0703 7.85879 15.6318C8.11638 15.1794 8.33642 14.7104 8.46717 14.2039C8.62725 13.5839 8.78433 12.963 8.94284 12.3426C8.96252 12.2653 8.98325 12.1882 9.00645 12.0998L9.00697 12.0997Z "
+                                    fill="#D9D9D9 " />
+                            </svg></span>
+                            </face>
+                            </basis>
+                            
+                             <basis core="print" datamembername="db.footer">
+  <face filter="text = 'youtube'">
+                            <span title="YouTube "><svg width="24 " height="24 " viewBox="0 0 24 24 "
+                                fill="none " xmlns="http://www.w3.org/2000/svg ">
+                                <path d="M10 15L15.19 12L10 9V15ZM21.56 7.17C21.69 7.64 21.78 8.27 21.84 9.07C21.91 9.87 21.94 10.56 21.94 11.16L22 12C22 14.19 21.84 15.8 21.56 16.83C21.31 17.73 20.73 18.31 19.83 18.56C19.36 18.69 18.5 18.78 17.18 18.84C15.88 18.91 14.69
+            18.94 13.59 18.94L12 19C7.81 19 5.2 18.84 4.17 18.56C3.27 18.31 2.69 17.73 2.44 16.83C2.31 16.36 2.22 15.73 2.16 14.93C2.09 14.13 2.06 13.44 2.06 12.84L2 12C2 9.81 2.16 8.2 2.44 7.17C2.69 6.27 3.27 5.69 4.17 5.44C4.64 5.31 5.5 5.22 6.82 5.16C8.12
+            5.09 9.31 5.06 10.41 5.06L12 5C16.19 5 18.8 5.16 19.83 5.44C20.73 5.69 21.31 6.27 21.56 7.17Z "
+                                    fill="#D9D9D9 " />
+                            </svg></span>
+                        </face>
+                        </basis>
+                        
+                        
+                        </div>
+                </div>
+
+                <div class="copyright">
+                    <a href="http://namasite.ir"></a>
+                </div>
+            </div>
+        </div>
+    </footer>   <script defer src="[##cms.cms.cdn##]/_js/basiscore-2.26.0.js"></script>
+    <script>
+        const host = {
+            settings: {
+                "connection.web.trust_login": "http://basispanel.ir/apicms",
+                "default.dmnid": 9765,
+                "default.dbsource.verb": "post",
+                "default.binding.regex": "\\{##([^#]*)##\\}"
+            }
+        };
+
+        function onSource(e) {
+            const s = document.querySelector("#requestBox input[name='captcha']").value,
+                i = document.querySelector("#requestBox input[name='captchaid']").value,
+                c = JSON.stringify(e.source?.rows[0]);
+            $bc.setSource("edit.object", {
+                value: c,
+                captcha: s,
+                captchaid: i
+            })
+        }
+        async function OnProcessedEditObject1(e) {
+         alert("errorid : " + json.errorid + " , message : " + json.message)
+
+ if (json.errorid == 6) {
+ $(".requestBox2").append('<div class="lds-ellipsis1"> <div class="backkkkk"><div class="lds-ellipsis">  The Form Successfully Submited<div></div><div></div><div></div><div></div></div></div></div>')
+
+ setTimeout(function () { $(".lds-ellipsis1").remove() }, 6000);
+ }
+ if (json.errorid == 4) {
+ $(".requestBox2").append('<div class="lds-ellipsis1"> <div class="backkkkk"><div class="lds-ellipsis lds-ellipsisrr"> Please Enter Captcha Code <div></div><div></div><div></div><div></div></div></div></div>')
+
+ setTimeout(function () { $(".lds-ellipsis1").remove() }, 6000);
+ }
+  if (json.errorid == 15) {
+ $(".requestBox2").append('<div class="lds-ellipsis1"> <div class="backkkkk"><div class="lds-ellipsis lds-ellipsisrr"> Captcha Code Is Invalid <div></div><div></div><div></div><div></div></div></div></div>')
+
+ setTimeout(function () { $(".lds-ellipsis1").remove() }, 6000);
+ }
+        }
+        $("body").on("click", ".refressh1", (function (e) {
+            return $(".captcha-sefaresh").load("/captcha.bc"), !1
+        }));
+
+
+
+     
+    </script>

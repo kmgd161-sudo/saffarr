@@ -1,0 +1,91 @@
+   <basis core="dbsource" source="basiscore" lid="2" mid="19" name="list" catid="[##cms.query.catid##]" >
+  <member name="arch1" type="list" perpage="200" typeid="159"  propertyid="13888,13889,13902,90757" />
+</basis>
+                <div class="list-head"><span>Project</span><span>Design
+                        Years</span><span>Service</span>
+                </div>
+
+
+<basis core="repeater" name="rep" datamembername="list.arch1">
+ 
+<basis core="dbsource" source="media" name="db" lid="2" usedforid="[##rep.current.id##]" sourcemid="19">
+    <member name="image" type="list" format="4" postsql="select * from [db.image] where ord=11"></member>
+   
+</basis>
+
+<basis core="print" datamembername="rep.current">
+    <face>
+                <div class="list-row" data-category="architecture" role="button" tabindex="0" aria-expanded="false">
+                    <span>@title </span><span>@prp_13888</span><span>
+                        @prp_90757</span>
+                    <div class="list-detail">
+                        <div class="detail-gallery">
+  </face>
+                        </basis>
+
+                                <basis core="print" datamembername="db.image">
+                                    <face >
+                            <img src="/@largeimg" alt="@name" draggable="false">
+                           
+                            </face>
+                        </basis>
+
+<basis core="print" datamembername="rep.current">
+    <face>
+                           
+                        </div>
+                        <div class="detail-copy">
+                            <h3><a href="/@link">@title</a></h3>
+                           <p>@prp_13902</p>
+                            <dl>
+                                <div>
+                                    <dt>execution date
+</dt>
+                                    <dd>@prp_13888</dd>
+                                </div>
+                                <div>
+                                    <dt>project site
+</dt>
+                                    <dd>@prp_13889</dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+             
+
+         </face>
+                </basis>
+</basis>
+
+
+
+                <!-- <div class="list-row hidden" data-category="architecture" role="button" tabindex="0" aria-expanded="false"><span>Project 13</span><span>Visual
+                        Identity</span><span>Architecture</span><span>2024</span>
+                    <div class="list-detail">
+                        <div class="detail-gallery">
+                            <img src="images/c13.png" alt="Project 13" draggable="false">
+                            <img src="images/c14.png" alt="Project 13 detail 1" draggable="false">
+                            <img src="images/c15.png" alt="Project 13 detail 2" draggable="false">
+                            <img src="images/c16.png" alt="Project 13 detail 3" draggable="false">
+                        </div>
+                        <div class="detail-copy">
+                            <h3><a href="#">Project 13</a></h3>
+                            <p>Creation of a distinctive visual identity and communication system, developed to give the project a clear and memorable presence across physical and digital applications.</p>
+                            <dl>
+                                <div>
+                                    <dt>Client</dt>
+                                    <dd>Project 13</dd>
+                                </div>
+                                <div>
+                                    <dt>Deliverables</dt>
+                                    <dd>Visual Identity, Art Direction</dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+             -->
+
+
+

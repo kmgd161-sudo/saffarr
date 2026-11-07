@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <basis core="print" datamembername="cms.seo" >
+        <face >
+          <title>@title</title>
+           	<meta name="Description" content="@description" />
+        </face>
+    </basis>
+    <link rel="stylesheet" href="css/style.css">
+      <style>
+      [data-bc-title-container]{
+        width: 100% !important;
+        margin-left: 0 !important;
+
+  float: none !important;
+      }
+      [data-bc-title-container] [data-bc-question-title],[data-bc-part-related-cell]{
+         margin-left: 0 !important;
+         width: 100% !important;
+  
+      }
+      [data-bc-question]{
+        clear: none !important;
+
+  direction: ltr;
+  width: 100%;
+  float: left;
+      }
+      [data-bc-part-container], [data-bc-btn-container]{
+        width: 100% !important;
+      }
+    [data-bc-answer-container] _textarea,  [data-bc-answer-container] input[type="text"], [data-bc-answer-container] input[type="password"], [data-bc-answer-container] input[type="time"], [data-bc-answer-container] input[type="color"], [data-bc-answer-container] input[type="file"], [data-bc-answer-container] select{
+  width: 100% !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-bottom: 1px solid var(--line) !important;
+  border-radius: none !important;
+      }
+      [data-bc-part-container], [data-bc-btn-container]{
+        width: 100% !important;
+      }
+      [data-bc-answer-container]{
+        width: 96% !important;
+      }
+     [data-bc-items] div:first-child{
+      display: none !important;
+     }
+       [data-bc-items] [data-sys-text]{
+        float: left;
+        margin-right: 20px;
+       }
+       [data-bc-part-related-cell] [data-bc-part-radio]{
+        border: unset !important;
+       }
+       legend {
+  color: #000;
+  text-align: right;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.w100 {
+  width: 100% !important;
+}
+#requestBox {
+  display: flex;
+  justify-content: space-between;
+}
+.qclass8 {
+  width: 100%;
+}
+[data-bc-title-container] [data-bc-question-title] {
+  margin-left: 10px;
+  width: 100%;
+
+  color: var(--fg);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: norma;
+}
+[data-bc-title-container],[data-bc-title-container]{
+    line-height: 20px !important;
+}
+[data-bc-answer-container] input[type="text"], [data-bc-answer-container] input[type="password"], [data-bc-answer-container] input[type="time"], [data-bc-answer-container] input[type="file"], [data-bc-answer-container] select, [data-bc-answer-container] textarea{
+    margin-top: 0 !important;
+    border-radius: unset !important;
+}
+    </style>
+</head>
+<basis core="dbsource" source="basiscore" name="db" mid="5" lid="2" usedforid="9765" >
+  <member type="view" name="contact"/>
+  
+  </basis>
+  <basis core="dbsource" source="basiscore" name="db" mid="5" lid="2" usedforid="9765" >
+  <member type="view" name="contact240" postsql="select * from [db.contact240] where typeid=240"/>
+  
+  </basis>
+<basis core="dbsource" source="media" name="db" lid="2" usedforid="9765" sourcemid="5">
+    <member name="gl" type="list" format="4"></member>
+   
+</basis>
+<body class="gallery-page project-page contact-page light">
+    <script>
+        try {
+            const savedTheme = localStorage.getItem('saffar-theme');
+            if (savedTheme === 'light' || savedTheme === 'dark') {
+                document.body.classList.toggle('light', savedTheme === 'light');
+            }
+        } catch (_) {}
+    </script>
+<basis core="call" file="header.inc" lid="2"></basis>
+
+    <main class="project-main">
+        <section class="contact-page-main">
+            <basis core="print" datamembername="db.gl">
+                <face filter="ord=1">
+ <div class="contact-map contact-map-desktop" role="img" 
+ aria-label=""
+  style="background-image:url('/@largeimg')"></div>
+          
+                </face>
+            </basis>
+               <basis core="print" datamembername="db.gl">
+                <face filter="ord=10">
+             <div class="contact-map contact-map-mobile" role="img"
+              aria-label=""
+               style="background-image:url('/@largeimg')"></div>
+</face>
+</basis>
+            <div class="bg-white ">
+                <div class="container">
+
+                    <div class="contact-page-content">
+
+
+                        <div class="contact-page-copy contact-desktop-only">
+                            <h1>Contact Us</h1>
+                            <p>Whether you&rsquo;re ready to start a new project, have questions about our approach, or just want to learn.</p>
+                            <dl class="contact-page-details">
+
+                                           <basis core="print" datamembername="db.contact">
+<face filter="typeid=242">
+                                <div>
+                                    <dt>Email</dt>
+                                    <dd>@answer</dd>
+                                </div>
+                                </face>
+                                </basis>
+                                <div>
+                                    <dt>Meet us</dt>
+                                    <dd><a href="#">book a meet</a></dd>
+                                </div>
+                                                  <basis core="print" datamembername="db.contact240">
+<face filter="rownumber=1">
+                                <div>
+                                    <dt>Phone</dt>
+                                    <dd>@answer</dd>
+                                </div>
+                                </face>
+                                </basis>
+                                                  <basis core="print" datamembername="db.contact240">
+<face filter="rownumber=2">
+                                <div>
+                                    <dt>Tell</dt>
+                                    <dd>@answer</dd>
+                                </div>
+                                </face>
+                                </basis>
+                                <div>
+                                    <dt>Social</dt>
+                                    <dd class="contact-social">
+
+     <basis core="print" datamembername="db.contact">
+  <face filter="text = 'instagram'">
+                                        <a href="@largetext">
+                                            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M6.1737 1.58337H12.8237C15.357 1.58337 17.4154 3.64171 17.4154 6.17504V12.825C17.4154 14.0428 16.9316 15.2107 16.0705 16.0718C15.2094 16.9329 14.0415 17.4167 12.8237 17.4167H6.1737C3.64036 17.4167 1.58203 15.3584 1.58203 12.825V6.17504C1.58203 4.95725 2.06579 3.78935 2.9269 2.92824C3.788 2.06714 4.95591 1.58337 6.1737 1.58337ZM6.01536 3.16671C5.2595 3.16671 4.53459 3.46697 4.00011 4.00145C3.46563 4.53593 3.16536 5.26084 3.16536 6.01671V12.9834C3.16536 14.5588 4.43995 15.8334 6.01536 15.8334H12.982C13.7379 15.8334 14.4628 15.5331 14.9973 14.9986C15.5318 14.4641 15.832 13.7392 15.832 12.9834V6.01671C15.832 4.44129 14.5574 3.16671 12.982 3.16671H6.01536ZM13.6549 4.35421C13.9174 4.35421 14.1691 4.45847 14.3547 4.64405C14.5403 4.82963 14.6445 5.08134 14.6445 5.34379C14.6445 5.60624 14.5403 5.85795 14.3547 6.04353C14.1691 6.22911 13.9174 6.33337 13.6549 6.33337C13.3925 6.33337 13.1408 6.22911 12.9552 6.04353C12.7696 5.85795 12.6654 5.60624 12.6654 5.34379C12.6654 5.08134 12.7696 4.82963 12.9552 4.64405C13.1408 4.45847 13.3925 4.35421 13.6549 4.35421ZM9.4987 5.54171C10.5485 5.54171 11.5553 5.95874 12.2977 6.70108C13.04 7.44341 13.457 8.45022 13.457 9.50004C13.457 10.5499 13.04 11.5567 12.2977 12.299C11.5553 13.0413 10.5485 13.4584 9.4987 13.4584C8.44888 13.4584 7.44206 13.0413 6.69973 12.299C5.9574 11.5567 5.54036 10.5499 5.54036 9.50004C5.54036 8.45022 5.9574 7.44341 6.69973 6.70108C7.44206 5.95874 8.44888 5.54171 9.4987 5.54171ZM9.4987 7.12504C8.86881 7.12504 8.26472 7.37526 7.81932 7.82066C7.37392 8.26606 7.1237 8.87015 7.1237 9.50004C7.1237 10.1299 7.37392 10.734 7.81932 11.1794C8.26472 11.6248 8.86881 11.875 9.4987 11.875C10.1286 11.875 10.7327 11.6248 11.1781 11.1794C11.6235 10.734 11.8737 10.1299 11.8737 9.50004C11.8737 8.87015 11.6235 8.26606 11.1781 7.82066C10.7327 7.37526 10.1286 7.12504 9.4987 7.12504Z"
+                                                    fill="#0D0D0D" />
+                                            </svg>
+
+                                        </a>
+                                        </face>
+                                        </basis>
+                                             <basis core="print" datamembername="db.contact">
+  <face filter="text = 'whatsapp'">
+                                        <a href="@largetext">
+                                            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M15.0833 3.88717C14.3574 3.15417 13.4929 2.57297 12.5401 2.17745C11.5873 1.78193 10.5654 1.58 9.53375 1.58342C5.21125 1.58342 1.68833 5.10633 1.68833 9.42883C1.68833 10.8143 2.0525 12.1601 2.73333 13.3476L1.625 17.4168L5.78125 16.3243C6.92917 16.9497 8.21958 17.2822 9.53375 17.2822C13.8562 17.2822 17.3792 13.7593 17.3792 9.43675C17.3792 7.33883 16.5637 5.36758 15.0833 3.88717ZM9.53375 15.9522C8.36208 15.9522 7.21417 15.6355 6.20875 15.0418L5.97125 14.8993L3.50125 15.5484L4.15833 13.1418L4 12.8963C3.34889 11.8569 3.00323 10.6553 3.0025 9.42883C3.0025 5.83467 5.93167 2.9055 9.52583 2.9055C11.2675 2.9055 12.9062 3.58633 14.1333 4.82133C14.741 5.42606 15.2226 6.14543 15.5501 6.93772C15.8776 7.73001 16.0446 8.57944 16.0413 9.43675C16.0571 13.0309 13.1279 15.9522 9.53375 15.9522ZM13.1121 11.0755C12.9142 10.9805 11.9483 10.5055 11.7742 10.4343C11.5921 10.3709 11.4654 10.3393 11.3308 10.5293C11.1962 10.7272 10.8242 11.1705 10.7133 11.2972C10.6025 11.4318 10.4837 11.4476 10.2858 11.3447C10.0879 11.2497 9.45458 11.0359 8.71042 10.3709C8.12458 9.84842 7.73667 9.20717 7.61792 9.00925C7.50708 8.81133 7.60208 8.70842 7.705 8.6055C7.79208 8.51842 7.90292 8.37592 7.99792 8.26508C8.09292 8.15425 8.1325 8.06717 8.19583 7.9405C8.25917 7.80592 8.2275 7.69508 8.18 7.60008C8.1325 7.50508 7.73667 6.53925 7.57833 6.14342C7.42 5.76342 7.25375 5.81092 7.135 5.803H6.755C6.62042 5.803 6.41458 5.8505 6.2325 6.04842C6.05833 6.24633 5.55167 6.72133 5.55167 7.68717C5.55167 8.653 6.25625 9.58717 6.35125 9.71383C6.44625 9.84842 7.73667 11.8276 9.7 12.6747C10.1671 12.8805 10.5312 12.9993 10.8162 13.0863C11.2833 13.2368 11.7108 13.213 12.0512 13.1655C12.4312 13.1101 13.215 12.6905 13.3733 12.2313C13.5396 11.7722 13.5396 11.3843 13.4842 11.2972C13.4288 11.2101 13.31 11.1705 13.1121 11.0755Z"
+                                                    fill="#0D0D0D" />
+                                            </svg>
+
+                                        </a>
+                                        </face>
+                                        </basis>
+                                             <basis core="print" datamembername="db.contact">
+  <face filter="text = 'telegram'">
+                                        <a href="@largetext">
+                                            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M13.0303 7.00292L12.1674 12.528C12.1555 12.6041 12.1249 12.6762 12.0783 12.7376C12.0317 12.799 11.9705 12.8478 11.9004 12.8798C11.8302 12.9117 11.7532 12.9257 11.6763 12.9206C11.5994 12.9154 11.5249 12.8912 11.4597 12.8502L8.57009 11.0396C8.51003 11.0021 8.45934 10.9513 8.42188 10.8911C8.38441 10.831 8.36117 10.7631 8.35392 10.6927C8.34667 10.6222 8.35559 10.551 8.38002 10.4845C8.40445 10.418 8.44373 10.3579 8.49488 10.3089L10.8936 8.00992C10.9205 7.98459 10.8889 7.94263 10.8572 7.96163L7.38021 10.0421C7.17355 10.1664 6.92812 10.2096 6.69146 10.1633L5.43271 9.92021C4.97829 9.83234 4.91575 9.2085 5.34246 9.03196L12.0732 6.24925C12.1879 6.20155 12.3132 6.18528 12.4362 6.20214C12.5593 6.219 12.6756 6.26837 12.7732 6.34517C12.8708 6.42196 12.9461 6.52339 12.9915 6.63901C13.0368 6.75463 13.0505 6.88025 13.0311 7.00292"
+                                                    fill="#0D0D0D" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M9.50098 1.35065C5.00035 1.35065 1.35156 4.99944 1.35156 9.50006C1.35156 14.0007 5.00035 17.6495 9.50098 17.6495C14.0016 17.6495 17.6504 14.0007 17.6504 9.50006C17.6504 4.99944 14.0016 1.35065 9.50098 1.35065ZM2.74806 9.50006C2.74806 8.61326 2.92273 7.73514 3.2621 6.91583C3.60146 6.09653 4.09888 5.3521 4.72595 4.72503C5.35301 4.09796 6.09745 3.60055 6.91675 3.26118C7.73605 2.92182 8.61417 2.74715 9.50098 2.74715C10.3878 2.74715 11.2659 2.92182 12.0852 3.26118C12.9045 3.60055 13.6489 4.09796 14.276 4.72503C14.9031 5.3521 15.4005 6.09653 15.7399 6.91583C16.0792 7.73514 16.2539 8.61326 16.2539 9.50006C16.2539 11.291 15.5424 13.0087 14.276 14.2751C13.0096 15.5415 11.292 16.253 9.50098 16.253C7.70999 16.253 5.99236 15.5415 4.72595 14.2751C3.45953 13.0087 2.74806 11.291 2.74806 9.50006Z"
+                                                    fill="#0D0D0D" />
+                                            </svg>
+
+                                        </a>
+                                        </face>
+                                        </basis>
+                                             <basis core="print" datamembername="db.contact">
+  <face filter="text = 'Linkedin'">
+                                        <a href="@largetext">
+                                            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M6.33203 3.95837C6.97527 3.95833 7.60326 4.15418 8.13244 4.51985C8.66163 4.88552 9.0669 5.40368 9.29434 6.00536C9.52177 6.60705 9.56059 7.26373 9.40561 7.88801C9.25063 8.5123 8.90921 9.07458 8.42678 9.50004C8.90921 9.9255 9.25063 10.4878 9.40561 11.1121C9.56059 11.7364 9.52177 12.393 9.29434 12.9947C9.0669 13.5964 8.66163 14.1146 8.13244 14.4802C7.60326 14.8459 6.97527 15.0417 6.33203 15.0417H3.16536C2.74544 15.0417 2.34271 14.8749 2.04578 14.578C1.74885 14.281 1.58203 13.8783 1.58203 13.4584V5.54171C1.58203 5.12178 1.74885 4.71905 2.04578 4.42212C2.34271 4.12519 2.74544 3.95837 3.16536 3.95837H6.33203ZM13.8529 7.12504C15.9167 7.12504 17.4154 8.99971 17.4154 11.0834C17.4153 11.2773 17.3441 11.4644 17.2153 11.6093C17.0864 11.7542 16.9089 11.8468 16.7163 11.8695L16.6237 11.875H11.9845C12.2679 12.844 13.0557 13.4584 13.8529 13.4584C14.7079 13.4584 15.1924 13.0538 15.6262 12.548C15.7627 12.3884 15.9569 12.2896 16.1663 12.2732C16.3756 12.2569 16.5829 12.3244 16.7424 12.4609C16.902 12.5974 17.0008 12.7916 17.0172 13.001C17.0335 13.2103 16.966 13.4176 16.8295 13.5771L16.7448 13.6737L16.5635 13.8685C15.9919 14.4559 15.1559 15.0417 13.8529 15.0417C11.789 15.0417 10.2904 13.167 10.2904 11.0834C10.2904 8.99971 11.789 7.12504 13.8529 7.12504ZM6.33203 10.2917H3.16536V13.4584H6.33203C6.74289 13.4602 7.13838 13.3023 7.43494 13.0179C7.73151 12.7335 7.90592 12.345 7.92133 11.9345C7.93675 11.5239 7.79196 11.1234 7.51756 10.8176C7.24315 10.5118 6.86062 10.3246 6.45078 10.2957L6.33203 10.2917ZM13.8529 8.70837C13.0557 8.70837 12.2679 9.32271 11.9845 10.2917H15.7212C15.4378 9.32271 14.6501 8.70837 13.8529 8.70837ZM6.33203 5.54171H3.16536V8.70837H6.33203C6.75196 8.70837 7.15468 8.54156 7.45162 8.24463C7.74855 7.94769 7.91536 7.54497 7.91536 7.12504C7.91536 6.70511 7.74855 6.30239 7.45162 6.00546C7.15468 5.70852 6.75196 5.54171 6.33203 5.54171ZM15.0404 4.75004C15.2503 4.75004 15.4517 4.83345 15.6002 4.98191C15.7486 5.13038 15.832 5.33174 15.832 5.54171C15.832 5.75167 15.7486 5.95303 15.6002 6.1015C15.4517 6.24997 15.2503 6.33337 15.0404 6.33337H12.6654C12.4554 6.33337 12.254 6.24997 12.1056 6.1015C11.9571 5.95303 11.8737 5.75167 11.8737 5.54171C11.8737 5.33174 11.9571 5.13038 12.1056 4.98191C12.254 4.83345 12.4554 4.75004 12.6654 4.75004H15.0404Z"
+                                                    fill="#0D0D0D" />
+                                            </svg>
+
+                                        </a>
+
+</face>
+</basis>
+
+
+                                    </dd>
+                                </div>
+                            </dl>
+                        </div>
+
+                        <form class="contact-request contact-desktop-only" >
+                          
+  <div class="requestBox2 frm-contact">
+
+
+                        <Basis core="schema" run="atclient" schemaUrl="/schema/domainform"
+                            paramUrl="/088F2E87-FD91-4B6C-A54C-A446F2EF3B2A/C34982DE-6F7B-4A27-9D18-3D69BE4AAE6C/fa/contact"
+                            displayMode="new" button="[data-btn-add]" resultSourceId="demo.data">
+                        </Basis>
+
+                        <basis core="callback" run="AtClient" triggers="demo.data" method="onSource"></basis>
+
+                        <Basis core="api" url="/schema/domainform/088F2E87-FD91-4B6C-A54C-A446F2EF3B2A/fa/editobject"
+                            method="post" run="atclient"
+                            body="object_edit={##edit.object.value##}&captcha={##edit.object.captcha##}&captchaid={##edit.object.captchaid##}"
+                            content-type="application/x-www-form-urlencoded" triggers="edit.object"
+                            if="{##edit.object##}" OnProcessed="OnProcessedEditObject1">
+                        </Basis>
+                         <div data-bc-title-container=""><span data-sys-text="">CAPTCHA Code </span></div>
+
+<div class="row">
+ <div class="col-md-6 col-12 pl-md-10">
+                        <div data-bc-question="" class="qclass8">
+                           
+                            <div id="requestBox" class="captchaContainerclass  captcha-sefaresh2"
+                                style="margin-bottom: 20px;" data-bc-answer-container="" data-bc-schema-info-multi="0"
+                                data-bc-schema-info-word="58" data-bc-schema-info-part="1"
+                                data-bc-schema-info-part-0-type="text">
+                                <basis core="dbsource" source="trust_login" name="captcha2">
+                                    <member name="code2" type="scalar" request="captcha"></member>
+                                </basis>
+                                <basis datamembername="captcha2.code2" core="print">
+                                    <face>
+                                        <span class="captcha-sefaresh">
+
+                                            <img src="/@captcha" width="88" height="44" class="captcha-sefaresh" alt=""
+                                            title="" />
+                                            <input type="hidden" name="captchaid" value="@captcha" />
+                                        </span>
+
+<button type="button" class="refresh-captcha refressh refressh1">
+ <svg width="19" height="22" viewBox="0 0 19 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+ <path d="M19 11.8296C19 17.1627 14.7391 21.5 9.5 21.5C4.26088 21.5 0 17.1627 0 11.8296C0 9.7132 0.658811 7.70131 1.90799 6.01458C2.05059 5.82297 2.31867 5.78233 2.5069 5.93039C2.69514 6.07555 2.73221 6.34844 2.58961 6.54005C1.45452 8.07582 0.852747 9.90481 0.852747 11.8325C0.852747 16.6837 4.73146 20.632 9.49715 20.632C14.2628 20.632 18.1416 16.6837 18.1416 11.8325C18.1416 6.98133 14.3512 3.12594 9.65686 3.03885L11.3509 4.76332C11.5192 4.93461 11.5192 5.21041 11.3509 5.37879C11.2682 5.46298 11.157 5.50653 11.0486 5.50653C10.9403 5.50653 10.829 5.46298 10.7463 5.37879L8.33924 2.92853C8.24797 2.83853 8.20519 2.71079 8.2166 2.58015C8.22801 2.45241 8.29646 2.33338 8.39913 2.2608L10.8062 0.576974C11.0002 0.440525 11.2682 0.489879 11.4023 0.690197C11.5363 0.887611 11.4878 1.16051 11.2911 1.29696L10.0333 2.17661C15.0215 2.46112 18.9972 6.68231 18.9972 11.8296H19Z" fill="black"></path>
+ </svg>
+ </button>
+                                       
+                                        <input type="text" class="codeinputm" name="captcha"
+                                            placeholder="CAPTCHA Code" />
+
+                                        
+                                    </face>
+                                </basis>
+
+
+
+                            </div>
+                        </div>
+ </div>
+
+
+<div class="col-md-6 col-12 pr-md-10">
+     <button class="contact-submit"  data-btn-add>SEND REQUEST</button>
+
+ </div>
+      
+       </div>                 
+                    </div> 
+
+                           
+                        </form>
+
+                        <div class="contact-page-copy contact-mobile-only">
+                            <h1>Contact Us</h1>
+                            <p>for all enquiries, please fill out the form below.</p>
+                        </div>
+
+                        <form class="contact-request contact-mobile-request contact-mobile-only" >
+                            <div class="requestBox2 frm-contact">
+
+
+                        <Basis core="schema" run="atclient" schemaUrl="/schema/domainform"
+                            paramUrl="/088F2E87-FD91-4B6C-A54C-A446F2EF3B2A/C34982DE-6F7B-4A27-9D18-3D69BE4AAE6C/fa/contact"
+                            displayMode="new" button="[data-btn-add]" resultSourceId="demo.data">
+                        </Basis>
+
+                        <basis core="callback" run="AtClient" triggers="demo.data" method="onSource"></basis>
+
+                        <Basis core="api" url="/schema/domainform/088F2E87-FD91-4B6C-A54C-A446F2EF3B2A/fa/editobject"
+                            method="post" run="atclient"
+                            body="object_edit={##edit.object.value##}&captcha={##edit.object.captcha##}&captchaid={##edit.object.captchaid##}"
+                            content-type="application/x-www-form-urlencoded" triggers="edit.object"
+                            if="{##edit.object##}" OnProcessed="OnProcessedEditObject1">
+                        </Basis>
+                         <div data-bc-title-container=""><span data-sys-text="">CAPTCHA Code </span></div>
+
+<div class="row">
+ <div class="col-md-6 col-12 pl-md-10">
+                        <div data-bc-question="" class="qclass8">
+                           
+                            <div id="requestBox" class="captchaContainerclass  captcha-sefaresh2"
+                                style="margin-bottom: 20px;" data-bc-answer-container="" data-bc-schema-info-multi="0"
+                                data-bc-schema-info-word="58" data-bc-schema-info-part="1"
+                                data-bc-schema-info-part-0-type="text">
+                                <basis core="dbsource" source="trust_login" name="captcha2">
+                                    <member name="code2" type="scalar" request="captcha"></member>
+                                </basis>
+                                <basis datamembername="captcha2.code2" core="print">
+                                    <face>
+                                        <span class="captcha-sefaresh">
+
+                                            <img src="/@captcha" width="88" height="44" class="captcha-sefaresh" alt=""
+                                            title="" />
+                                            <input type="hidden" name="captchaid" value="@captcha" />
+                                        </span>
+
+<button type="button" class="refresh-captcha refressh refressh1">
+ <svg width="19" height="22" viewBox="0 0 19 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+ <path d="M19 11.8296C19 17.1627 14.7391 21.5 9.5 21.5C4.26088 21.5 0 17.1627 0 11.8296C0 9.7132 0.658811 7.70131 1.90799 6.01458C2.05059 5.82297 2.31867 5.78233 2.5069 5.93039C2.69514 6.07555 2.73221 6.34844 2.58961 6.54005C1.45452 8.07582 0.852747 9.90481 0.852747 11.8325C0.852747 16.6837 4.73146 20.632 9.49715 20.632C14.2628 20.632 18.1416 16.6837 18.1416 11.8325C18.1416 6.98133 14.3512 3.12594 9.65686 3.03885L11.3509 4.76332C11.5192 4.93461 11.5192 5.21041 11.3509 5.37879C11.2682 5.46298 11.157 5.50653 11.0486 5.50653C10.9403 5.50653 10.829 5.46298 10.7463 5.37879L8.33924 2.92853C8.24797 2.83853 8.20519 2.71079 8.2166 2.58015C8.22801 2.45241 8.29646 2.33338 8.39913 2.2608L10.8062 0.576974C11.0002 0.440525 11.2682 0.489879 11.4023 0.690197C11.5363 0.887611 11.4878 1.16051 11.2911 1.29696L10.0333 2.17661C15.0215 2.46112 18.9972 6.68231 18.9972 11.8296H19Z" fill="black"></path>
+ </svg>
+ </button>
+                                       
+                                        <input type="text" class="codeinputm" name="captcha"
+                                            placeholder="CAPTCHA Code" />
+
+                                        
+                                    </face>
+                                </basis>
+
+
+
+                            </div>
+                        </div>
+ </div>
+
+
+<div class="col-md-6 col-12 pr-md-10">
+     <button class="contact-submit"  data-btn-add>SEND REQUEST</button>
+
+ </div>
+      
+       </div>                 
+                    </div> 
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+
+
+    </main>
+
+
+
+     <basis core="call" file="footer.inc" lid="2"></basis>
+
+   <basis core="call" file="menu.inc" lid="2"></basis>
+
+
+ <script src="_js/jquery/jquery-3.7.1.js"></script>
+    <script src="js/app.js"></script>
+     <script defer src="[##cms.cms.cdn##]/_js/basiscore-2.26.0.js"></script>
+    <script>
+        const host = {
+            settings: {
+                "connection.web.trust_login": "http://basispanel.ir/apicms",
+                "default.dmnid": 9765,
+                "default.dbsource.verb": "post",
+                "default.binding.regex": "\\{##([^#]*)##\\}"
+            }
+        };
+
+        function onSource(e) {
+            const s = document.querySelector("#requestBox input[name='captcha']").value,
+                i = document.querySelector("#requestBox input[name='captchaid']").value,
+                c = JSON.stringify(e.source?.rows[0]);
+            $bc.setSource("edit.object", {
+                value: c,
+                captcha: s,
+                captchaid: i
+            })
+        }
+        async function OnProcessedEditObject1(e) {
+         alert("errorid : " + json.errorid + " , message : " + json.message)
+
+ if (json.errorid == 6) {
+ $(".requestBox2").append('<div class="lds-ellipsis1"> <div class="backkkkk"><div class="lds-ellipsis">  The Form Successfully Submited<div></div><div></div><div></div><div></div></div></div></div>')
+
+ setTimeout(function () { $(".lds-ellipsis1").remove() }, 6000);
+ }
+ if (json.errorid == 4) {
+ $(".requestBox2").append('<div class="lds-ellipsis1"> <div class="backkkkk"><div class="lds-ellipsis lds-ellipsisrr"> Please Enter Captcha Code <div></div><div></div><div></div><div></div></div></div></div>')
+
+ setTimeout(function () { $(".lds-ellipsis1").remove() }, 6000);
+ }
+  if (json.errorid == 15) {
+ $(".requestBox2").append('<div class="lds-ellipsis1"> <div class="backkkkk"><div class="lds-ellipsis lds-ellipsisrr"> Captcha Code Is Invalid <div></div><div></div><div></div><div></div></div></div></div>')
+
+ setTimeout(function () { $(".lds-ellipsis1").remove() }, 6000);
+ }
+        }
+        $("body").on("click", ".refressh1", (function (e) {
+            return $(".captcha-sefaresh").load("/captcha.bc"), !1
+        }));
+
+
+
+     
+    </script>
+</body>
+
+
+</html>

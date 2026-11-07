@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+     <meta content="[##cms.seo.title|dbs.listt.title##]" name="description" />
+    <title>[##cms.seo.title|dbs.listt.title##]</title>
+    <link rel="stylesheet" href="css/style.css">
+<style>
+  @media (min-width: 768px) {
+    .project-show-arch-page .project-show-arch-grid.is-masonry {
+      display: flex;
+      align-items: stretch;          /* all columns in a section end on the same line */
+      gap: 14px;
+      columns: auto;
+      height: var(--masonry-h, auto);
+      margin-bottom: 14px;           /* same space between sections as between images */
+    }
+    .project-show-arch-grid.is-masonry > .masonry-col {
+      flex: 1 1 0;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .project-show-arch-grid.is-masonry .masonry-col > .box-proj {
+      position: relative;
+      display: block;
+      min-height: 0;
+      margin: 0;
+      overflow: hidden;
+      aspect-ratio: var(--ar, 1);
+      flex: var(--fit, 1) var(--fit, 1) auto;
+    }
+    .project-show-arch-grid.is-masonry .masonry-col > .box-proj img,
+    .project-show-arch-grid.is-masonry .masonry-col > .box-proj video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      aspect-ratio: auto;
+      object-fit: cover;
+    }
+  }
+  @media (max-width: 767.98px) {
+    .project-show-arch-grid.is-masonry > .masonry-col { display: contents; }
+  }
+</style>
+
+</head>
+
+  <basis core="dbsource" source="basiscore" name="dbs" lid="2" request="seo">
+    <member name="listt" type="list" request="product" id="[##cms.query.id##]"></member>
+</basis>
+
+
+<basis core="dbsource" source="basiscore" mid="19" name="db" lid="2" usedforid="[##cms.query.id##]">
+    <member name="show" type="view" postsql="select * from [db.show] where typeid not in (144,159,160,161,162) and prpid not in (13902)"  ></member>
+  </basis>
+<basis core="dbsource" source="media" name="db" lid="2" usedforid="[##cms.query.id##]" sourcemid="19">
+    <member name="gallery" type="list" format="4" perpage="200"></member>
+   
+</basis>
+<basis core="dbsource" source="media" name="db" lid="2" usedforid="[##cms.query.id##]" sourcemid="19">
+    <member name="img1000" type="list" format="4" postsql="select * from [db.img1000] where ord not in (1,2)"></member>
+   
+</basis>
+<basis core="dbsource" source="media" name="db" lid="2" usedforid="[##cms.query.id##]" sourcemid="19">
+    <member name="video" type="list" format="3"></member>
+   
+</basis>
+<basis core="dbsource" source="basiscore" mid="19" name="db" lid="2" usedforid="[##cms.query.id##]">
+    <member name="desc" type="view" postsql="select * from [db.desc] where typeid=144"  ></member>
+  </basis>
+
+  <basis core="dbsource" source="basiscore" mid="19" name="db" lid="2" usedforid="[##cms.query.id##]">
+  
+    <member name="relprj" perpage="100" type="list"  blgid="629" propertyid="13888" link="project.bc" size="100x100"></member>
+    </basis>
+  <basis core="dbsource" source="media" name="db" lid="2" usedforid="[##cms.query.id##]" sourcemid="19">
+    <member name="pdf" type="list" format="pdf" perpage="200"></member>
+   
+</basis>
+<basis core="dbsource" source="basiscore" mid="19" name="db" lid="2" usedforid="[##cms.query.id##]">
+    <member name="name150" type="view" postsql="select * from [db.name150] where typeid=150"  ></member>
+  </basis>
+<body class="gallery-page project-show-grid-page project-show-arch-page light">
+    <script>
+        try {
+            const t = localStorage.getItem('saffar-theme');
+            if (t === 'light' || t === 'dark') document.body.classList.toggle('light', t === 'light')
+        } catch (_) { }
+    </script>
+
+<basis core="call" file="header.inc" lid="2"></basis>
+    <main class="project-show-main">
+
+     
+   <section class="project-show-hero" aria-labelledby="projectShowTitle">
+
+            <h1 id="projectShowTitle">
+   <basis core="print" datamembername="db.gallery">
+            <face filter="ord=1">
+                <img src="/@largeimg" alt="[##db.name150.answer##]"  loading="lazy"
+  decoding="async"
+>
+
+   </face>
+        </basis>
+
+  <basis core="print" datamembername="db.show">
+                            <face filter="typeid=150">
+<p>@answer</p>
+</face>
+</basis>
+            </h1>
+  
+     
+
+        </section>
+
+       
+
+        <div class="project-show-mobile-palette" aria-label="Project color palette">
+          
+              <basis core="print" datamembername="db.gallery">
+                            <face filter="ord=2"> 
+<img src="/@largeimg" alt="[##db.name150.answer##]"  loading="lazy"
+  decoding="async"
+>
+                                </face>
+                                </basis>
+
+
+        </div>
+
+        <section class="project-meta-contaner" aria-label="Project information">
+            <div class="container">
+                <div class="project-meta">
+                    <div>
+                        <basis core="print" datamembername="db.show">
+                            <face filter="question='title'"> 
+                                 <p><b> @question</b> @answer</p>
+                                </face>
+                        </basis>
+                     
+                    </div>
+                    <div>
+                         <basis core="print" datamembername="db.show">
+                            <face filter="question='designer'"> 
+                        <p><b>@question</b> @answer</p>
+                        </face>
+                        </basis>
+                     
+                    </div>
+                    <div class="project-palette" aria-label="Color palette">
+                        <basis core="print" datamembername="db.gallery">
+                            <face filter="ord=2"> 
+<img src="/@largeimg" alt="[##db.name150.answer##]"  loading="lazy"
+  decoding="async"
+>
+                                </face>
+                                </basis>
+                    </div>
+                    <div>
+                         <basis core="print" datamembername="db.show">
+                            <face filter="question='project site'"> 
+                        <p><b>@question</b> @answer</p>
+                        </face>
+                        </basis>
+                      
+                    </div>
+                        <div>
+                         <basis core="print" datamembername="db.show">
+                            <face filter="question='execution date'"> 
+                        <p><b>@question</b> @answer</p>
+                        </face>
+                        </basis>
+                         
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-show-grid project-show-arch-grid" id="projectCarousel"
+            aria-label="Architecture project gallery" tabindex="0">
+             <basis core="print" datamembername="db.gallery">
+                            <face filter="ord=11"> 
+            <div class="box-proj">
+                <div class="layer1-box"></div>
+                <div class="layer2-box"></div>
+                <img src="/@largeimg" alt="[##db.name150.answer##]" draggable="false"
+                    data-images="[##db.img1000.largeimg##]"  loading="lazy"
+  decoding="async"
+>
+                         
+            </div>
+            </face>
+                                </basis> 
+
+            
+
+        </section>
+        <section class="project-show-grid project-show-arch-grid" id="projectCarousel"
+            aria-label="Architecture project gallery" tabindex="0">
+             <basis core="print" datamembername="db.gallery">
+                            <face filter="ord=1005"> 
+            <div class="box-proj">
+                <div class="layer1-box"></div>
+                <div class="layer2-box"></div>
+                <img src="/@largeimg" alt="[##db.name150.answer##]" draggable="false"
+                    data-images="[##db.img1000.largeimg##]"  loading="lazy"
+  decoding="async"
+>
+                         
+            </div>
+            </face>
+                                </basis> 
+
+            
+
+        </section>
+        <section class="project-show-grid project-show-arch-grid" id="projectCarousel"
+            aria-label="Architecture project gallery" tabindex="0">
+             <basis core="print" datamembername="db.gallery">
+                            <face filter="ord=1006"> 
+            <div class="box-proj">
+                <div class="layer1-box"></div>
+                <div class="layer2-box"></div>
+                <img src="/@largeimg" alt="[##db.name150.answer##]" draggable="false"
+                    data-images="[##db.img1000.largeimg##]"  loading="lazy"
+  decoding="async"
+>
+                         
+            </div>
+            </face>
+                                </basis> 
+
+            
+
+        </section>
+        <section class="project-show-copy container">
+            <basis core="print" datamembername="db.show">
+                <face filter="typeid=150">
+ <h2>@answer</h2>
+                </face>
+            </basis>
+                <basis core="print" datamembername="db.desc">
+                <face >
+            <p>
+               @answer
+            </p>
+            </face>
+            </basis>
+        </section>
+    </main>
+
+    <div class="lightbox" id="galleryLightbox" role="dialog" aria-modal="true" aria-hidden="true"
+        aria-label="Project gallery viewer">
+        <div class="lightbox-header">
+            <span class="lightbox-title" id="lightboxTitle"></span>
+            <div class="lightbox-controls">
+                <button class="lb-prev" id="lbPrev" type="button" aria-label="Scroll gallery left">
+                    <svg width="49" height="16" viewBox="0 0 49 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M24.6415 9.794V13H22.7375V3.662H26.6855C27.7588 3.662 28.5988 3.90933 29.2055 4.404C29.8122 4.89867 30.1155 5.65 30.1155 6.658C30.1155 7.666 29.8122 8.44067 29.2055 8.982C28.5988 9.52333 27.7588 9.794 26.6855 9.794H24.6415ZM24.6415 8.268H26.4475C26.7648 8.268 27.0308 8.23067 27.2455 8.156C27.4602 8.072 27.6282 7.96 27.7495 7.82C27.8708 7.67067 27.9548 7.50733 28.0015 7.33C28.0575 7.15267 28.0855 6.96133 28.0855 6.756C28.0855 6.54133 28.0575 6.34067 28.0015 6.154C27.9548 5.96733 27.8708 5.79933 27.7495 5.65C27.6282 5.50067 27.4602 5.38867 27.2455 5.314C27.0308 5.23 26.7648 5.188 26.4475 5.188H24.6415V8.268ZM31.8293 13V3.662H36.1693C37.1866 3.662 37.9706 3.90467 38.5213 4.39C39.0813 4.866 39.3613 5.58467 39.3613 6.546C39.3613 6.994 39.268 7.42333 39.0813 7.834C38.904 8.23533 38.638 8.57133 38.2833 8.842C37.938 9.11267 37.5133 9.28067 37.0093 9.346L37.0233 8.73L39.8373 13H37.4433L34.9793 8.87L35.8333 9.626H33.7333V13H31.8293ZM33.7333 8.17H35.7633C36.2766 8.17 36.6686 8.04867 36.9393 7.806C37.21 7.554 37.3453 7.16667 37.3453 6.644C37.3453 6.17733 37.2333 5.818 37.0093 5.566C36.7853 5.314 36.4306 5.188 35.9453 5.188H33.7333V8.17ZM41.4406 13V3.662H47.6986V5.188H43.3446V7.554H47.1246V9.094H43.3446V11.474H47.6986V13H41.4406Z"
+                            fill="black" />
+                        <path d="M2.80078 8L9.10078 14.3L10.0808 13.25L4.90078 8L10.0808 2.75L9.10078 1.7L2.80078 8Z"
+                            fill="black" />
+                    </svg>
+
+                </button>
+                <button class="lb-next" id="lbNext" type="button" aria-label="Scroll gallery right">
+                    <svg width="58" height="16" viewBox="0 0 58 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1.05 13V3.662H2.758L7.854 10.634L7.308 11.754V3.662H9.072V13H7.532L2.31 6L2.828 5.146V13H1.05ZM11.1672 13V3.662H17.4252V5.188H13.0712V7.554H16.8512V9.094H13.0712V11.474H17.4252V13H11.1672ZM27.3213 13H24.9833L18.5573 3.662H20.9093L27.3213 13ZM22.8693 7.246L25.1093 3.662H27.2373L23.8913 8.688L22.8693 7.246ZM23.2473 8.982L20.7133 13H18.5993L22.1693 7.708L23.2473 8.982ZM30.6438 13V5.188H27.8158V3.662H35.3898V5.188H32.5478V13H30.6438Z"
+                            fill="black" />
+                        <path d="M55.1992 8L48.8992 1.7L47.9192 2.75L53.0992 8L47.9192 13.25L48.8992 14.3L55.1992 8Z"
+                            fill="black" />
+                    </svg>
+                </button>
+                <span class="lb-mobile-page" id="lbMobilePage" aria-live="polite"></span>
+                <button class="lb-menu" id="lbMenu" type="button" aria-label="Row view" aria-pressed="true">
+                    <svg width="22" height="15" viewBox="0 0 22 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 9.61651e-07V3L0 3L1.31135e-07 0L22 9.61651e-07Z" fill="#333333"></path>
+                        <path d="M22 6V9L0 9L1.31135e-07 6L22 6Z" fill="#333333"></path>
+                        <path d="M22 12V15L0 15L1.31135e-07 12L22 12Z" fill="#333333"></path>
+                    </svg>
+                </button>
+                <button class="lb-compact" id="lbCompact" type="button" aria-label="Grid view" aria-pressed="false">
+                    <svg width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0H3V16H0V0Z" fill="#333333"></path>
+                        <path d="M5 0H8V16H5V0Z" fill="#333333"></path>
+                        <path d="M10 0H13V16H10V0Z" fill="#333333"></path>
+                    </svg>
+                </button>
+                <button class="lb-close" id="lbClose" type="button" aria-label="Close gallery">
+                    <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M11 1.10786L9.89214 0L5.5 4.39214L1.10786 0L0 1.10786L4.39214 5.5L0 9.89214L1.10786 11L5.5 6.60786L9.89214 11L11 9.89214L6.60786 5.5L11 1.10786Z"
+                            fill="black" />
+                    </svg>
+
+                </button>
+            </div>
+        </div>
+        <div class="lightbox-body">
+            <div class="lightbox-grid" id="lightboxGrid"></div>
+        </div>
+        <div class="lightbox-footer">
+            <div class="lb-actions">
+             <basis core="print" datamembername="db.pdf">
+                    <face>
+   <a id="lbDownload" type="button" href="/@largeimg">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M12.6654 6H9.9987V2H5.9987V6H3.33203L7.9987 10.6667L12.6654 6ZM3.33203 12V13.3333H12.6654V12H3.33203Z"
+              fill="black" />
+          </svg> Download PDF</a>
+
+                    </face>
+                </basis>
+                <button id="lbShare" type="button"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M7.67775 7.73488C8.03016 7.36888 8.50204 7.14126 9.00786 7.09329C9.51367 7.04532 10.0199 7.18017 10.4349 7.47339C10.8498 7.76661 11.1459 8.1988 11.2696 8.69161C11.3933 9.18441 11.3362 9.70522 11.1089 10.1596C10.8816 10.614 10.499 10.9719 10.0304 11.1684C9.56188 11.3649 9.03844 11.3871 8.55498 11.2308C8.07152 11.0746 7.66004 10.7503 7.39515 10.3167C7.13026 9.88312 7.02948 9.36899 7.11108 8.8675L3.65937 7.13705C3.36593 7.44331 2.98755 7.65475 2.57292 7.74416C2.1583 7.83356 1.7264 7.79684 1.33282 7.63872C0.939244 7.4806 0.601989 7.20832 0.364461 6.85691C0.126932 6.5055 0 6.09105 0 5.6669C0 5.24274 0.126932 4.8283 0.364461 4.47689C0.601989 4.12548 0.939244 3.8532 1.33282 3.69508C1.7264 3.53696 2.1583 3.50024 2.57292 3.58964C2.98755 3.67905 3.36593 3.89049 3.65937 4.19675L7.11108 2.4663C7.02948 1.96481 7.13026 1.45068 7.39515 1.01711C7.66004 0.583546 8.07152 0.25924 8.55498 0.102986C9.03844 -0.0532684 9.56188 -0.0311279 10.0304 0.165394C10.499 0.361915 10.8816 0.719809 11.1089 1.1742C11.3362 1.62858 11.3933 2.14939 11.2696 2.64219C11.1459 3.135 10.8498 3.56718 10.4349 3.86041C10.0199 4.15363 9.51367 4.28848 9.00786 4.24051C8.50204 4.19254 8.03016 3.96492 7.67775 3.59892L4.2232 5.32584C4.25986 5.5515 4.25986 5.78159 4.2232 6.00725L7.67775 7.73488ZM9.20846 2.83321C9.39632 2.83321 9.57648 2.75858 9.70932 2.62575C9.84216 2.49291 9.91679 2.31274 9.91679 2.12488C9.91679 1.93702 9.84216 1.75685 9.70932 1.62401C9.57648 1.49117 9.39632 1.41655 9.20846 1.41655C9.02059 1.41655 8.84043 1.49117 8.70759 1.62401C8.57475 1.75685 8.50012 1.93702 8.50012 2.12488C8.50012 2.31274 8.57475 2.49291 8.70759 2.62575C8.84043 2.75858 9.02059 2.83321 9.20846 2.83321ZM9.20846 9.91655C9.39632 9.91655 9.57648 9.84192 9.70932 9.70908C9.84216 9.57624 9.91679 9.39607 9.91679 9.20821C9.91679 9.02035 9.84216 8.84018 9.70932 8.70734C9.57648 8.57451 9.39632 8.49988 9.20846 8.49988C9.02059 8.49988 8.84043 8.57451 8.70759 8.70734C8.57475 8.84018 8.50012 9.02035 8.50012 9.20821C8.50012 9.39607 8.57475 9.57624 8.70759 9.70908C8.84043 9.84192 9.02059 9.91655 9.20846 9.91655ZM2.12512 6.37488C2.31298 6.37488 2.49315 6.30025 2.62599 6.16741C2.75883 6.03457 2.83345 5.85441 2.83345 5.66655C2.83345 5.47868 2.75883 5.29852 2.62599 5.16568C2.49315 5.03284 2.31298 4.95821 2.12512 4.95821C1.93726 4.95821 1.75709 5.03284 1.62425 5.16568C1.49142 5.29852 1.41679 5.47868 1.41679 5.66655C1.41679 5.85441 1.49142 6.03457 1.62425 6.16741C1.75709 6.30025 1.93726 6.37488 2.12512 6.37488Z"
+                            fill="black" />
+                    </svg>
+                    <span>Share</span></button>
+            </div>
+            <div class="lb-meta" id="lightboxMeta"></div>
+            <div class="lb-rights">SAFFARSTUDIO © All Rights Reserved</div>
+        </div>
+    </div>
+
+    <basis core="print" datamembername="db.relprj">
+        <face>
+<a class="next-project-container" href="/@link">
+        <div class="container">
+            <div class="next-project">
+                <img src="/@00100x00100prp" alt="@title"  loading="lazy"
+  decoding="async"
+>
+            
+                <span class="left-text"><small>Next Up</small><b>@title</b></span>
+                <!-- <p class="right-text">Reimagining digital brand positioning and product</p> -->
+                <time>  
+                    @prp_13888</time><em>Show
+                    more  <svg width="10" height="20" viewBox="0 0 10 20" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M7.91306 10.5927L3.50433 15.3069L2.40234 14.1285L6.26008 10.0035L2.40234 5.87853L3.50433 4.7002L7.91306 9.41436C8.05917 9.57063 8.14124 9.78256 8.14124 10.0035C8.14124 10.2245 8.05917 10.4364 7.91306 10.5927Z"
+                            fill="#838383" />
+                    </svg>
+                </em>
+            </div>
+        </div>
+    </a>
+        </face>
+    </basis>
+    
+
+    <basis core="call" file="footer.inc" lid="2"></basis>
+
+     <basis core="call" file="menu.inc" lid="2"></basis>
+
+
+    <script src="js/app.js"></script>
+    <script src="js/project.js"></script>
+
+ <script>
+  /* Each image section keeps its own images, but its 3 columns are filled so
+     that they come out as level as possible, then the last few pixels are
+     shared out between the images. No more empty space under short columns. */
+  (function () {
+    var COLS = 3;
+    var GAP = 14;
+    var desktop = window.matchMedia('(min-width: 768px)');
+    if (!desktop.matches) return; // mobile layout stays as it is
+ 
+    var sections = Array.prototype.slice.call(
+      document.querySelectorAll('.project-show-arch-page .project-show-arch-grid')
+    );
+ 
+    function ratio(el) {
+      var m = /([\d.]+)\s*\/\s*([\d.]+)\s*$/.exec(getComputedStyle(el).aspectRatio || '');
+      if (m && +m[2]) return +m[1] / +m[2];
+      var r = el.getBoundingClientRect();
+      return r.height ? r.width / r.height : 1;
+    }
+ 
+    // tallest column ÷ shortest column (1 = perfectly level)
+    function unevenness(h) {
+      var min = Math.min.apply(null, h);
+      return min ? Math.max.apply(null, h) / min : Infinity;
+    }
+ 
+    /* Choose a column for every image. The first three always go 1-2-3 across
+       the top; the rest are placed to keep the columns as even as possible. */
+    function plan(ars, g) {
+      var beam = [{ h: [0, 0, 0], a: [] }];
+      ars.forEach(function (ar, idx) {
+        var add = 1 / ar + g;
+        var next = {};
+        beam.forEach(function (s) {
+          for (var k = 0; k < COLS; k++) {
+            if (idx < COLS && k !== idx) continue;
+            var h = s.h.slice();
+            h[k] += add;
+            var key = h.map(function (x) { return x.toFixed(3); }).join('|');
+            if (!next[key]) next[key] = { h: h, a: s.a.concat(k) };
+          }
+        });
+        beam = Object.keys(next).map(function (k) { return next[k]; });
+        if (idx >= COLS && beam.length > 3000) {
+          beam.sort(function (x, y) { return unevenness(x.h) - unevenness(y.h); });
+          beam = beam.slice(0, 3000);
+        }
+      });
+      beam.sort(function (x, y) { return unevenness(x.h) - unevenness(y.h); });
+      return beam[0].a;
+    }
+ 
+    sections.forEach(function (section) {
+      var items = Array.prototype.slice.call(section.children).map(function (el) {
+        return { el: el, ar: ratio(el) };
+      });
+      if (items.length < 2) return;
+ 
+      var colW = (section.clientWidth - GAP * (COLS - 1)) / COLS;
+      var assign = plan(items.map(function (i) { return i.ar; }), GAP / colW);
+ 
+      var cols = [];
+      for (var c = 0; c < COLS; c++) {
+        var col = document.createElement('div');
+        col.className = 'masonry-col';
+cols.push(col);
+      }
+      items.forEach(function (item, idx) {
+        item.el.style.setProperty('--ar', item.ar.toFixed(4));
+        // bigger images absorb more (×10 so the values never add up to less than 1)
+        item.el.style.setProperty('--fit', (10 / item.ar).toFixed(4));
+        cols[assign[idx]].appendChild(item.el);
+      });
+      cols.forEach(function (col) { if (col.children.length) section.appendChild(col); });
+      section.classList.add('is-masonry');
+ 
+      // Section height = halfway (geometric mean) between its shortest and tallest
+      // column, so images are only slightly stretched or trimmed.
+      function fit() {
+        var w = cols[0].clientWidth;
+        if (!w) return;
+        var h = cols.filter(function (col) { return col.children.length; }).map(function (col) {
+          var kids = Array.prototype.slice.call(col.children);
+          return kids.reduce(function (sum, el) {
+            return sum + w / parseFloat(el.style.getPropertyValue('--ar'));
+          }, 0) + GAP * (kids.length - 1);
+        });
+        var target = Math.sqrt(Math.min.apply(null, h) * Math.max.apply(null, h));
+        section.style.setProperty('--masonry-h', Math.round(target) + 'px');
+      }
+      fit();
+      if ('ResizeObserver' in window) new ResizeObserver(fit).observe(section);
+      else window.addEventListener('resize', fit);
+    });
+  })();
+</script>
+</body>
+
+</html>

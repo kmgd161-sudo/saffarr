@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta content="[##cms.seo.title|dbs.listt.title##]" name="description" />
+    <title>[##cms.seo.title|dbs.listt.title##]</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+  <basis core="dbsource" source="basiscore" name="dbs" lid="2" request="seo">
+    <member name="listt" type="list" request="product" id="[##cms.query.id##]"></member>
+</basis>
+
+
+<basis core="dbsource" source="basiscore" mid="19" name="db" lid="2" usedforid="[##cms.query.id##]">
+    <member name="show" type="view" postsql="select * from [db.show] where typeid not in (144,159,160,161,162) and prpid not in (13902)"  ></member>
+  </basis>
+<basis core="dbsource" source="media" name="db" lid="2" usedforid="[##cms.query.id##]" sourcemid="19">
+    <member name="gallery" type="list" format="4"></member>
+   
+</basis>
+<basis core="dbsource" source="media" name="db" lid="2" usedforid="[##cms.query.id##]" sourcemid="19">
+    <member name="img1000" type="list" format="4" postsql="select * from [db.img1000] where ord=1000"></member>
+   
+</basis>
+<basis core="dbsource" source="media" name="db" lid="2" usedforid="[##cms.query.id##]" sourcemid="19">
+    <member name="video" type="list" format="3"></member>
+   
+</basis>
+<basis core="dbsource" source="basiscore" mid="19" name="db" lid="2" usedforid="[##cms.query.id##]">
+    <member name="desc" type="view" postsql="select * from [db.desc] where typeid=144"  ></member>
+  </basis>
+
+  <basis core="dbsource" source="basiscore" mid="19" name="db" lid="2" usedforid="[##cms.query.id##]">
+  
+    <member name="relprj" perpage="100" type="list"  blgid="629" propertyid="13888" link="project.bc" size="100x100"></member>
+    </basis>
+<body class="gallery-page project-page light">
+    <script>
+        try {
+            const savedTheme = localStorage.getItem('saffar-theme');
+            if (savedTheme === 'light' || savedTheme === 'dark') {
+                document.body.classList.toggle('light', savedTheme === 'light');
+            }
+        } catch (_) {}
+    </script>
+<basis core="call" file="header.inc" lid="2"></basis>
+
+    <main class="project-main">
+        <section class="project-intro">
+             <basis core="print" datamembername="db.show">
+                            <face filter="typeid=150"> 
+            <h1>@answer</h1>
+            </face>
+            </basis>
+             <basis core="print" datamembername="db.desc">
+                            <face filter="rownumber=1">
+            <p>@answer</p>
+            </face>
+            </basis>
+             <basis core="print" datamembername="db.show">
+                            <face filter="prpid=13888">
+            <time datetime="2025-01">@answer</time>
+            </face>
+            </basis>
+        </section>
+
+        <div class="project-mobile-palette" aria-label="Project color palette">
+            <basis core="print" datamembername="db.gallery">
+                            <face filter="rownumber=2"> 
+<img src="/@largeimg" alt="">
+                                </face>
+                                </basis>
+        
+        </div>
+
+        <section class="project-meta-contaner" aria-label="Project information">
+            <div class="container">
+                  <div class="project-meta">
+                    <div>
+                        <basis core="print" datamembername="db.show">
+                            <face filter="rownumber=1"> 
+                                 <p><b> @question</b> @answer</p>
+                                </face>
+                        </basis>
+                       <basis core="print" datamembername="db.show">
+                            <face filter="rownumber=2"> 
+                        <p><b> @question</b> @answer</p>
+                        </face>
+                        </basis>
+                    </div>
+                    <div>
+                         <basis core="print" datamembername="db.show">
+                            <face filter="rownumber=3"> 
+                        <p><b>@question</b> @answer</p>
+                        </face>
+                        </basis>
+                         <basis core="print" datamembername="db.show">
+                            <face filter="rownumber=4"> 
+                        <p><b>@question</b>@answer</p>
+                        </face>
+                        </basis>
+                    </div>
+                    <div class="project-palette" aria-label="Color palette">
+                        <basis core="print" datamembername="db.gallery">
+                            <face filter="rownumber=2"> 
+<img src="/@largeimg" alt="">
+                                </face>
+                                </basis>
+                    </div>
+                    <div>
+                         <basis core="print" datamembername="db.show">
+                            <face filter="rownumber=5"> 
+                        <p><b>@question</b> @answer</p>
+                        </face>
+                        </basis>
+                         <basis core="print" datamembername="db.show">
+                            <face filter="rownumber=6"> 
+                        <p><b>@question</b> @answer</p>
+                        </face>
+                        </basis>
+                    </div>
+                        <div>
+                         <basis core="print" datamembername="db.show">
+                            <face filter="rownumber=7"> 
+                        <p><b>@question</b> @answer</p>
+                        </face>
+                        </basis>
+                         <basis core="print" datamembername="db.show">
+                            <face filter="rownumber=8"> 
+                        <p><b>@question</b> @answer</p>
+                        </face>
+                        </basis>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <basis core="print" datamembername="db.video">
+            <face filter="rownumber=1">
+  <div class="project-film-pin">
+            <section class="project-film" id="projectFilm">
+                <div class="project-film-scale">
+                    <video id="projectVideo" preload="metadata" playsinline>
+                        <source src="/@largeimg" type="video/mp4">
+                    </video>
+                </div>
+                <div class="project-film-mask" aria-hidden="true">
+                    <span class="m-top"></span><span class="m-bottom"></span><span class="m-left"></span><span class="m-right"></span>
+                </div>
+            </section>
+        </div>
+            </face>
+        </basis>
+      
+
+        <section class="project-description">
+            <div class="container">
+                    <basis core="print" datamembername="db.desc">
+                <face filter="rownumber=2">
+            <p>
+               @answer
+            </p>
+            </face>
+            </basis>
+            </div>
+        </section>
+
+        <section class="project-gallery" id="projectCarousel" aria-label="Project gallery" tabindex="0">
+          
+          
+          
+            
+             <basis core="print" datamembername="db.video">
+            <face filter="rownumber>1">
+            <video autoplay muted loop playsinline preload="metadata"  aria-label="Project film"
+             data-media="images/zamin.mp4, images/c7.png, images/c10.png, images/c11.png">
+                <source src="/@largeimg" type="video/mp4">
+            </video>
+
+            </face>
+            </basis>
+           
+        </section>
+
+        <section class="project-credits-container">
+            <div class="container">
+                <div class="project-credits">
+                    
+                    <div>
+                          <basis core="print" datamembername="db.show">
+                            <face filter="rownumber=9"> 
+                        <b>@question</b><span>@answer</span>
+                        </face>
+                        </basis>
+                          <basis core="print" datamembername="db.show">
+                            <face filter="rownumber=10"> 
+                        <b>@question</b><span>@answer</span>
+                        </face>
+                        </basis>
+                        
+                        
+                        </div>
+                    <div>
+                        
+    <basis core="print" datamembername="db.show">
+                            <face filter="rownumber=11"> 
+                        <b>@question</b><span>@answer</span>
+                        </face>
+                        </basis>
+                            <basis core="print" datamembername="db.show">
+                            <face filter="rownumber=12"> 
+                        <b>@question</b><span>@answer</span>
+                        </face>
+                        </basis>
+
+                    </div>
+                    <div>
+                            <basis core="print" datamembername="db.show">
+                            <face filter="rownumber=13"> 
+                        <b>@question</b><span>@answer</span>
+                        </face>
+                        </basis>
+                            <basis core="print" datamembername="db.show">
+                            <face filter="rownumber=14"> 
+                        <b>@question</b><span>@answer</span>
+                        </face>
+                        </basis>
+
+                    </div>
+                    
+                  
+                    <div class="project-rights">
+                        <span class="logos">
+
+                               <basis core="print" datamembername="db.gallery">
+            <face filter="ord=50">
+                            <a href="">
+                                <img src="/@largeimg">
+                            </a>
+                          </face>
+                          </basis>
+                        </span>
+ <basis core="print" datamembername="db.show">
+                            <face filter="prpid=90775"> 
+
+                        <span>@answer</span>
+                        </face>
+                        </basis>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+   <basis core="print" datamembername="db.relprj">
+        <face>
+<a class="next-project-container" href="/@link">
+        <div class="container">
+            <div class="next-project">
+                <img src="/@00100x00100prp" alt="@title">
+            
+                <span class="left-text"><small>Next Up</small><b>@title</b></span>
+                <!-- <p class="right-text">Reimagining digital brand positioning and product</p> -->
+                <time> &nbsp;
+                    @prp_13888</time><em>Show
+                    more&nbsp; <svg width="10" height="20" viewBox="0 0 10 20" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M7.91306 10.5927L3.50433 15.3069L2.40234 14.1285L6.26008 10.0035L2.40234 5.87853L3.50433 4.7002L7.91306 9.41436C8.05917 9.57063 8.14124 9.78256 8.14124 10.0035C8.14124 10.2245 8.05917 10.4364 7.91306 10.5927Z"
+                            fill="#838383" />
+                    </svg>
+                </em>
+            </div>
+        </div>
+    </a>
+        </face>
+    </basis>
+
+      <basis core="call" file="footer.inc" lid="2"></basis>
+
+     <basis core="call" file="menu.inc" lid="2"></basis>
+
+
+    <div class="lightbox" id="galleryLightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Project gallery viewer">
+        <div class="lightbox-header">
+            <span class="lightbox-title" id="lightboxTitle"></span>
+            <div class="lightbox-controls">
+                <button class="lb-prev" id="lbPrev" type="button" aria-label="Scroll gallery left">
+                    <svg width="49" height="16" viewBox="0 0 49 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M24.6415 9.794V13H22.7375V3.662H26.6855C27.7588 3.662 28.5988 3.90933 29.2055 4.404C29.8122 4.89867 30.1155 5.65 30.1155 6.658C30.1155 7.666 29.8122 8.44067 29.2055 8.982C28.5988 9.52333 27.7588 9.794 26.6855 9.794H24.6415ZM24.6415 8.268H26.4475C26.7648 8.268 27.0308 8.23067 27.2455 8.156C27.4602 8.072 27.6282 7.96 27.7495 7.82C27.8708 7.67067 27.9548 7.50733 28.0015 7.33C28.0575 7.15267 28.0855 6.96133 28.0855 6.756C28.0855 6.54133 28.0575 6.34067 28.0015 6.154C27.9548 5.96733 27.8708 5.79933 27.7495 5.65C27.6282 5.50067 27.4602 5.38867 27.2455 5.314C27.0308 5.23 26.7648 5.188 26.4475 5.188H24.6415V8.268ZM31.8293 13V3.662H36.1693C37.1866 3.662 37.9706 3.90467 38.5213 4.39C39.0813 4.866 39.3613 5.58467 39.3613 6.546C39.3613 6.994 39.268 7.42333 39.0813 7.834C38.904 8.23533 38.638 8.57133 38.2833 8.842C37.938 9.11267 37.5133 9.28067 37.0093 9.346L37.0233 8.73L39.8373 13H37.4433L34.9793 8.87L35.8333 9.626H33.7333V13H31.8293ZM33.7333 8.17H35.7633C36.2766 8.17 36.6686 8.04867 36.9393 7.806C37.21 7.554 37.3453 7.16667 37.3453 6.644C37.3453 6.17733 37.2333 5.818 37.0093 5.566C36.7853 5.314 36.4306 5.188 35.9453 5.188H33.7333V8.17ZM41.4406 13V3.662H47.6986V5.188H43.3446V7.554H47.1246V9.094H43.3446V11.474H47.6986V13H41.4406Z"
+                            fill="black" />
+                        <path d="M2.80078 8L9.10078 14.3L10.0808 13.25L4.90078 8L10.0808 2.75L9.10078 1.7L2.80078 8Z"
+                            fill="black" />
+                    </svg>
+                </button>
+                <button class="lb-next" id="lbNext" type="button" aria-label="Scroll gallery right">
+                    <svg width="58" height="16" viewBox="0 0 58 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1.05 13V3.662H2.758L7.854 10.634L7.308 11.754V3.662H9.072V13H7.532L2.31 6L2.828 5.146V13H1.05ZM11.1672 13V3.662H17.4252V5.188H13.0712V7.554H16.8512V9.094H13.0712V11.474H17.4252V13H11.1672ZM27.3213 13H24.9833L18.5573 3.662H20.9093L27.3213 13ZM22.8693 7.246L25.1093 3.662H27.2373L23.8913 8.688L22.8693 7.246ZM23.2473 8.982L20.7133 13H18.5993L22.1693 7.708L23.2473 8.982ZM30.6438 13V5.188H27.8158V3.662H35.3898V5.188H32.5478V13H30.6438Z"
+                            fill="black" />
+                        <path d="M55.1992 8L48.8992 1.7L47.9192 2.75L53.0992 8L47.9192 13.25L48.8992 14.3L55.1992 8Z"
+                            fill="black" />
+                    </svg>
+                </button>
+                <span class="lb-mobile-page" id="lbMobilePage" aria-live="polite"></span>
+                <button class="lb-menu" id="lbMenu" type="button" aria-label="Carousel view" aria-pressed="true">
+                    <svg width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect y="0" width="20" height="2" fill="currentColor" />
+                        <rect y="10" width="20" height="2" fill="currentColor" />
+                    </svg>
+                </button>
+                <button class="lb-compact" id="lbCompact" type="button" aria-label="Grid view" aria-pressed="false">
+                    <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect y="0" width="18" height="2" fill="currentColor" />
+                        <rect y="5" width="18" height="2" fill="currentColor" />
+                        <rect y="10" width="18" height="2" fill="currentColor" />
+                    </svg>
+                </button>
+                <button class="lb-close" id="lbClose" type="button" aria-label="Close gallery"> <svg width="11"
+                        height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M11 1.10786L9.89214 0L5.5 4.39214L1.10786 0L0 1.10786L4.39214 5.5L0 9.89214L1.10786 11L5.5 6.60786L9.89214 11L11 9.89214L6.60786 5.5L11 1.10786Z"
+                            fill="black" />
+                    </svg></button>
+            </div>
+        </div>
+        <div class="lightbox-body">
+            <div class="lightbox-grid" id="lightboxGrid"></div>
+        </div>
+        <div class="lightbox-footer">
+            <div class="lb-actions">
+                <button class="lb-download" id="lbDownload" type="button">
+                    <svg width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.5 0V9.5M6.5 9.5L2.5 5.5M6.5 9.5L10.5 5.5" stroke="currentColor" stroke-width="1.3"
+                            fill="none" />
+                        <path d="M0.5 11.5V13.5H12.5V11.5" stroke="currentColor" stroke-width="1.3" fill="none" />
+                    </svg>
+                    <span>Download PDF</span>
+                </button>
+                <button class="lb-share" id="lbShare" type="button">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="11" cy="2.5" r="1.8" stroke="currentColor" stroke-width="1.1" fill="none" />
+                        <circle cx="3" cy="7" r="1.8" stroke="currentColor" stroke-width="1.1" fill="none" />
+                        <circle cx="11" cy="11.5" r="1.8" stroke="currentColor" stroke-width="1.1" fill="none" />
+                        <path d="M4.6 6.1L9.4 3.4M4.6 7.9L9.4 10.6" stroke="currentColor" stroke-width="1.1" />
+                    </svg>
+                    <span>Share</span>
+                </button>
+            </div>
+            <div class="lb-meta" id="lightboxMeta"></div>
+            <div class="lb-rights">SAFFARSTUDIO &copy; All Rights Reserved</div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/project.js"></script>
+</body>
+
+</html>

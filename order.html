@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta content="[##cms.seo.title|dbs.listt.title##]" name="description" />
+    <title>[##cms.seo.title|dbs.listt.title##]</title>
+    <link rel="stylesheet" href="css/style.css">
+     <style>
+      [data-bc-title-container]{
+        width: 100% !important;
+        margin-left: 0 !important;
+
+  float: none !important;
+      }
+      [data-bc-title-container] [data-bc-question-title],[data-bc-part-related-cell]{
+         margin-left: 0 !important;
+         width: 100% !important;
+      }
+      [data-bc-question]{
+        clear: none !important;
+
+  direction: ltr;
+  width: 100%;
+  float: left;
+      }
+      [data-bc-part-container], [data-bc-btn-container]{
+        width: 100% !important;
+      }
+    [data-bc-answer-container] _textarea,  [data-bc-answer-container] input[type="text"], [data-bc-answer-container] input[type="password"], [data-bc-answer-container] input[type="time"], [data-bc-answer-container] input[type="color"], [data-bc-answer-container] input[type="file"], [data-bc-answer-container] select{
+  width: 100% !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-bottom: 1px solid var(--line) !important;
+  border-radius: none !important;
+      }
+      [data-bc-part-container], [data-bc-btn-container]{
+        width: 100% !important;
+      }
+      [data-bc-answer-container]{
+        width: 96% !important;
+      }
+     [data-bc-items] div:first-child{
+      display: none !important;
+     }
+       [data-bc-items] [data-sys-text]{
+        float: left;
+        margin-right: 20px;
+       }
+       [data-bc-part-related-cell] [data-bc-part-radio]{
+        border: unset !important;
+       }
+       legend {
+  color: #000;
+  text-align: right;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.w100 {
+  width: 100% !important;
+}
+#requestBox {
+  display: flex;
+  justify-content: space-between;
+}
+.qclass8 {
+  width: 100%;
+}
+[data-bc-title-container] [data-bc-question-title] {
+  margin-left: 10px;
+  width: 100%;
+
+  color: var(--fg);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: norma;
+}
+[data-bc-title-container],[data-bc-title-container]{
+    line-height: 20px !important;
+}
+[data-bc-answer-container] input[type="text"], [data-bc-answer-container] input[type="password"], [data-bc-answer-container] input[type="time"], [data-bc-answer-container] input[type="file"], [data-bc-answer-container] select, [data-bc-answer-container] textarea{
+    margin-top: 0 !important;
+    border-radius: unset !important;
+}
+    </style>
+</head>
+ <basis core="dbsource" source="basiscore" name="dbs" lid="2" request="seo">
+    <member name="listt" type="list" request="product" id="[##cms.query.catid##]"></member>
+</basis>
+<body class="gallery-page order-page light">
+    <script>
+        try {
+            const t = localStorage.getItem('saffar-theme');
+            if (t === 'light' || t === 'dark') document.body.classList.toggle('light', t === 'light')
+        } catch (_) {}
+    </script>
+  <basis core="call" file="header.inc" lid="2"></basis>
+
+    <main class="order-main">
+        <div class="container">
+
+            <div class="order-layout">
+                <section>
+                    <h1>Graphic Design Proposal</h1>
+                    <div class="order-services" aria-live="polite"></div>
+
+                </section>
+                <form class="order-form order-form-desktop" onsubmit="return false">
+                    <p>
+                      Fill out the order form, and we’ll be in touch with you.
+Once we’ve reviewed your request, we’ll contact you to discuss the details.</p>
+                   
+                
+
+
+   <div class="requestBox2 frm-contact">
+
+
+                        <Basis core="schema" run="atclient" schemaUrl="/schema/domainform"
+                            paramUrl="/088F2E87-FD91-4B6C-A54C-A446F2EF3B2A/659E3EDF-7D32-4AD5-B022-16157B91274D/fa/Fa-order-from"
+                            displayMode="new" button="[data-btn-add]" resultSourceId="demo.data">
+                        </Basis>
+
+                        <basis core="callback" run="AtClient" triggers="demo.data" method="onSource"></basis>
+
+                        <Basis core="api" url="/schema/domainform/088F2E87-FD91-4B6C-A54C-A446F2EF3B2A/fa/editobject"
+                            method="post" run="atclient"
+                            body="object_edit={##edit.object.value##}&captcha={##edit.object.captcha##}&captchaid={##edit.object.captchaid##}"
+                            content-type="application/x-www-form-urlencoded" triggers="edit.object"
+                            if="{##edit.object##}" OnProcessed="OnProcessedEditObject1">
+                        </Basis>
+                         <div data-bc-title-container=""><span data-sys-text="">CAPTCHA Code </span></div>
+
+<div class="row">
+ <div class="col-md-6 col-12 pl-md-10">
+                        <div data-bc-question="" class="qclass8">
+                           
+                            <div id="requestBox" class="captchaContainerclass  captcha-sefaresh2"
+                                style="margin-bottom: 20px;" data-bc-answer-container="" data-bc-schema-info-multi="0"
+                                data-bc-schema-info-word="58" data-bc-schema-info-part="1"
+                                data-bc-schema-info-part-0-type="text">
+                                <basis core="dbsource" source="trust_login" name="captcha2">
+                                    <member name="code2" type="scalar" request="captcha"></member>
+                                </basis>
+                                <basis datamembername="captcha2.code2" core="print">
+                                    <face>
+                                        <span class="captcha-sefaresh">
+
+                                            <img src="/@captcha" width="88" height="44" class="captcha-sefaresh" alt=""
+                                            title="" />
+                                            <input type="hidden" name="captchaid" value="@captcha" />
+                                        </span>
+
+<button type="button" class="refresh-captcha refressh refressh1">
+ <svg width="19" height="22" viewBox="0 0 19 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+ <path d="M19 11.8296C19 17.1627 14.7391 21.5 9.5 21.5C4.26088 21.5 0 17.1627 0 11.8296C0 9.7132 0.658811 7.70131 1.90799 6.01458C2.05059 5.82297 2.31867 5.78233 2.5069 5.93039C2.69514 6.07555 2.73221 6.34844 2.58961 6.54005C1.45452 8.07582 0.852747 9.90481 0.852747 11.8325C0.852747 16.6837 4.73146 20.632 9.49715 20.632C14.2628 20.632 18.1416 16.6837 18.1416 11.8325C18.1416 6.98133 14.3512 3.12594 9.65686 3.03885L11.3509 4.76332C11.5192 4.93461 11.5192 5.21041 11.3509 5.37879C11.2682 5.46298 11.157 5.50653 11.0486 5.50653C10.9403 5.50653 10.829 5.46298 10.7463 5.37879L8.33924 2.92853C8.24797 2.83853 8.20519 2.71079 8.2166 2.58015C8.22801 2.45241 8.29646 2.33338 8.39913 2.2608L10.8062 0.576974C11.0002 0.440525 11.2682 0.489879 11.4023 0.690197C11.5363 0.887611 11.4878 1.16051 11.2911 1.29696L10.0333 2.17661C15.0215 2.46112 18.9972 6.68231 18.9972 11.8296H19Z" fill="black"></path>
+ </svg>
+ </button>
+                                       
+                                        <input type="text" class="codeinputm" name="captcha"
+                                            placeholder="CAPTCHA Code" />
+
+                                        
+                                    </face>
+                                </basis>
+
+
+
+                            </div>
+                        </div>
+ </div>
+
+
+<div class="col-md-6 col-12 pr-md-10">
+
+   <button class="contact-submit"  data-btn-add >SEND REQUEST</button>
+ </div>
+      
+       </div>                 
+                    </div>
+
+
+
+                  
+                    <!-- <input class="attachment-input" id="orderAttachmentDesktop" type="file">
+                    <label class="contact-attach order-desktop-attach" for="orderAttachmentDesktop"><b>+</b> Attach
+                        file</label>
+                    <p class="attachment-status" aria-live="polite"></p> -->
+                </form>
+                <form class="order-form order-form-mobile" onsubmit="return false">
+                      <p>
+                      Fill out the order form, and we’ll be in touch with you.
+Once we’ve reviewed your request, we’ll contact you to discuss the details.</p>
+                   
+                
+
+
+   <div class="requestBox2 frm-contact">
+
+
+                        <Basis core="schema" run="atclient" schemaUrl="/schema/domainform"
+                            paramUrl="/088F2E87-FD91-4B6C-A54C-A446F2EF3B2A/659E3EDF-7D32-4AD5-B022-16157B91274D/fa/Fa-order-from"
+                            displayMode="new" button="[data-btn-add]" resultSourceId="demo.data">
+                        </Basis>
+
+                        <basis core="callback" run="AtClient" triggers="demo.data" method="onSource"></basis>
+
+                        <Basis core="api" url="/schema/domainform/088F2E87-FD91-4B6C-A54C-A446F2EF3B2A/fa/editobject"
+                            method="post" run="atclient"
+                            body="object_edit={##edit.object.value##}&captcha={##edit.object.captcha##}&captchaid={##edit.object.captchaid##}"
+                            content-type="application/x-www-form-urlencoded" triggers="edit.object"
+                            if="{##edit.object##}" OnProcessed="OnProcessedEditObject1">
+                        </Basis>
+                         <div data-bc-title-container=""><span data-sys-text="">CAPTCHA Code </span></div>
+
+<div class="row">
+ <div class="col-md-6 col-12 pl-md-10">
+                        <div data-bc-question="" class="qclass8">
+                           
+                            <div id="requestBox" class="captchaContainerclass  captcha-sefaresh2"
+                                style="margin-bottom: 20px;" data-bc-answer-container="" data-bc-schema-info-multi="0"
+                                data-bc-schema-info-word="58" data-bc-schema-info-part="1"
+                                data-bc-schema-info-part-0-type="text">
+                                <basis core="dbsource" source="trust_login" name="captcha2">
+                                    <member name="code2" type="scalar" request="captcha"></member>
+                                </basis>
+                                <basis datamembername="captcha2.code2" core="print">
+                                    <face>
+                                        <span class="captcha-sefaresh">
+
+                                            <img src="/@captcha" width="88" height="44" class="captcha-sefaresh" alt=""
+                                            title="" />
+                                            <input type="hidden" name="captchaid" value="@captcha" />
+                                        </span>
+
+<button type="button" class="refresh-captcha refressh refressh1">
+ <svg width="19" height="22" viewBox="0 0 19 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+ <path d="M19 11.8296C19 17.1627 14.7391 21.5 9.5 21.5C4.26088 21.5 0 17.1627 0 11.8296C0 9.7132 0.658811 7.70131 1.90799 6.01458C2.05059 5.82297 2.31867 5.78233 2.5069 5.93039C2.69514 6.07555 2.73221 6.34844 2.58961 6.54005C1.45452 8.07582 0.852747 9.90481 0.852747 11.8325C0.852747 16.6837 4.73146 20.632 9.49715 20.632C14.2628 20.632 18.1416 16.6837 18.1416 11.8325C18.1416 6.98133 14.3512 3.12594 9.65686 3.03885L11.3509 4.76332C11.5192 4.93461 11.5192 5.21041 11.3509 5.37879C11.2682 5.46298 11.157 5.50653 11.0486 5.50653C10.9403 5.50653 10.829 5.46298 10.7463 5.37879L8.33924 2.92853C8.24797 2.83853 8.20519 2.71079 8.2166 2.58015C8.22801 2.45241 8.29646 2.33338 8.39913 2.2608L10.8062 0.576974C11.0002 0.440525 11.2682 0.489879 11.4023 0.690197C11.5363 0.887611 11.4878 1.16051 11.2911 1.29696L10.0333 2.17661C15.0215 2.46112 18.9972 6.68231 18.9972 11.8296H19Z" fill="black"></path>
+ </svg>
+ </button>
+                                       
+                                        <input type="text" class="codeinputm" name="captcha"
+                                            placeholder="CAPTCHA Code" />
+
+                                        
+                                    </face>
+                                </basis>
+
+
+
+                            </div>
+                        </div>
+ </div>
+
+
+<div class="col-md-6 col-12 pr-md-10">
+
+   <button class="contact-submit"  data-btn-add >SEND REQUEST</button>
+ </div>
+      
+       </div>                 
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </main>
+      <basis core="call" file="footer.inc" lid="2"></basis>
+
+   <basis core="call" file="menu.inc" lid="2"></basis>
+
+
+    <div class="overlay" id="overlay">
+        <button id="close">
+            <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="16.6382" cy="16.6382" r="16.6382" fill="#606060" />
+                <rect x="22.8604" y="12.4901" width="14.6656" height="2.93311" transform="rotate(135 22.8604 12.4901)"
+                    fill="white" />
+                <rect x="12.4899" y="10.4163" width="14.6656" height="2.93311" transform="rotate(45 12.4899 10.4163)"
+                    fill="white" />
+            </svg>
+
+        </button>
+
+        <div class="menu-aside">
+            <div class="tagline">Branding and<br>Communication</div>
+            <div class="mini-logo">SAFFAR&nbsp;STUDIO<sup>™</sup></div>
+            <div class="contact-block">
+                <div class="phone">+263 874 32 23</div>
+                <div class="address">No 524/4, unit03<br>MEDALION BUILDING<br>shahrdari blvd,<br>mehrshahr, karaj</div>
+                <div class="email">hello@saffarstudio.com</div>
+            </div>
+        </div>
+
+        <div class="menu">
+            <div><a href="index.html">HOME</a></div>
+            <div><a href="gallery.html">SERVICES</a></div>
+            <div><a href="gallery.html">PRODUCTS</a></div>
+            <div><a href="gallery.html">ARCHITECTURE</a></div>
+            <div><a href="gallery.html">GRAPHIC DESIGN</a></div>
+            <div><a href="gallery.html">PHOTOGRAPHY</a></div>
+            <div class="menu-combo"><a href="gallery.html"><span class="word">EVENT</span><span class="divider" aria-hidden="true">&middot;</span><span class="word">EXHIBITIONS</span></a></div>
+            <div><a href="gallery.html">VIDEOGRAPHY</a></div>
+            <div class="menu-combo"><a href="cv.html">ABOUT</a><span class="divider" aria-hidden="true">&middot;</span><a href="contact.html">CONTACT</a></div>
+        </div>
+
+        <nav class="mobile-menu" aria-label="Mobile menu">
+            <div class="mobile-menu-primary">
+                <a href="gallery.html">PRODUCTS</a>
+                <a href="gallery.html">ARCHITECTURE</a>
+                <a href="gallery.html">GRAPHIC DESIGN</a>
+                <a href="gallery.html">PHOTOGRAPHY</a>
+                <a href="gallery.html">EVENT EXHIBITIONS</a>
+                <a href="gallery.html">VIDEOGRAPHY</a>
+                <a href="gallery.html">UX UI DESIGN</a>
+            </div>
+            <div class="mobile-menu-secondary">
+                <a href="gallery.html">SERVICES</a>
+                <a href="cv.html">ABOUT</a>
+                <a href="contact.html">CONTACT</a>
+            </div>
+            <div class="mobile-menu-contact">
+                <span>+263 874 32 23</span>
+                <span>support@saffarstudio.com</span>
+                <address>UNIT 3, MEDALION BUILDING<br>SHAHRDARI BLVD,<br>MEHRSHAHR, KARAJ</address>
+            </div>
+        </nav>
+
+        <div class="menu-footer">
+            <span class="rights">SAFFARSTUDIO &copy;ALL RIGHTS RESERVED</span>
+            <span class="lang">
+                <b>EN</b> <a href="#">FA</a>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M9.12503 8.83234C8.97582 8.37322 8.54539 8.03462 8.03462 8.03462H7.46072V6.31291C7.46072 6.16071 7.40025 6.01473 7.29263 5.90711C7.185 5.79948 7.03902 5.73901 6.88682 5.73901H3.44341V4.59121H4.59121C4.74342 4.59121 4.88939 4.53075 4.99702 4.42312C5.10465 4.31549 5.16511 4.16952 5.16511 4.01731V2.86951H6.31291C6.61733 2.86951 6.90928 2.74858 7.12453 2.53332C7.33979 2.31807 7.46072 2.02612 7.46072 1.7217V1.4864C8.14738 1.76323 8.75673 2.20233 9.23661 2.76611C9.7165 3.32989 10.0526 4.00155 10.2162 4.72362C10.3798 5.44568 10.366 6.19663 10.176 6.91218C9.98592 7.62774 9.62533 8.28659 9.12503 8.83234ZM5.16511 10.2901C2.8982 10.0088 1.1478 8.08053 1.1478 5.73901C1.1478 5.38319 1.19371 5.03885 1.26832 4.71173L4.01731 7.46072V8.03462C4.01731 8.33904 4.13824 8.63098 4.35349 8.84624C4.56875 9.06149 4.8607 9.18242 5.16511 9.18242M5.73901 0C4.98536 0 4.23908 0.148444 3.54279 0.436856C2.8465 0.725269 2.21383 1.148 1.68092 1.68092C0.604644 2.75719 0 4.21693 0 5.73901C0 7.26109 0.604644 8.72083 1.68092 9.79711C2.21383 10.33 2.8465 10.7528 3.54279 11.0412C4.23908 11.3296 4.98536 11.478 5.73901 11.478C7.26109 11.478 8.72083 10.8734 9.79711 9.79711C10.8734 8.72083 11.478 7.26109 11.478 5.73901C11.478 4.98536 11.3296 4.23908 11.0412 3.54279C10.7528 2.8465 10.33 2.21383 9.79711 1.68092C9.26419 1.148 8.63153 0.725269 7.93524 0.436856C7.23895 0.148444 6.49267 0 5.73901 0Z"
+                        fill="#8A8A8A" />
+                </svg>
+
+            </span>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+      <script defer src="[##cms.cms.cdn##]/_js/basiscore-2.26.0.js"></script>
+    <script>
+        const host = {
+            settings: {
+                "connection.web.trust_login": "http://basispanel.ir/apicms",
+                "default.dmnid": 9765,
+                "default.dbsource.verb": "post",
+                "default.binding.regex": "\\{##([^#]*)##\\}"
+            }
+        };
+
+        function onSource(e) {
+            const s = document.querySelector("#requestBox input[name='captcha']").value,
+                i = document.querySelector("#requestBox input[name='captchaid']").value,
+                c = JSON.stringify(e.source?.rows[0]);
+            $bc.setSource("edit.object", {
+                value: c,
+                captcha: s,
+                captchaid: i
+            })
+        }
+        async function OnProcessedEditObject1(e) {
+         alert("errorid : " + json.errorid + " , message : " + json.message)
+
+ if (json.errorid == 6) {
+ $(".requestBox2").append('<div class="lds-ellipsis1"> <div class="backkkkk"><div class="lds-ellipsis">  The Form Successfully Submited<div></div><div></div><div></div><div></div></div></div></div>')
+
+ setTimeout(function () { $(".lds-ellipsis1").remove() }, 6000);
+ }
+ if (json.errorid == 4) {
+ $(".requestBox2").append('<div class="lds-ellipsis1"> <div class="backkkkk"><div class="lds-ellipsis lds-ellipsisrr"> Please Enter Captcha Code <div></div><div></div><div></div><div></div></div></div></div>')
+
+ setTimeout(function () { $(".lds-ellipsis1").remove() }, 6000);
+ }
+  if (json.errorid == 15) {
+ $(".requestBox2").append('<div class="lds-ellipsis1"> <div class="backkkkk"><div class="lds-ellipsis lds-ellipsisrr"> Captcha Code Is Invalid <div></div><div></div><div></div><div></div></div></div></div>')
+
+ setTimeout(function () { $(".lds-ellipsis1").remove() }, 6000);
+ }
+        }
+        $("body").on("click", ".refressh1", (function (e) {
+            return $(".captcha-sefaresh").load("/captcha.bc"), !1
+        }));
+
+
+
+     
+    </script>
+</body>
+
+</html>

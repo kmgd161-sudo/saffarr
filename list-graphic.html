@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+     <meta content="[##cms.seo.title|dbs.listt.title##]" name="description" />
+    <title>[##cms.seo.title|dbs.listt.title##]</title>
+    <link rel="stylesheet" href="css/nouislider.min.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/style.css">
+       <style>
+        .ajax-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    min-height: 200px;
+    width: 100%;
+    color: #555;
+    font-size: 14px;
+    text-align: center;
+}
+
+.loading-spinner {
+    width: 38px;
+    height: 38px;
+    border: 3px solid #e5e5e5;
+    border-top-color: #222;
+    border-radius: 50%;
+    animation: ajaxSpin 0.8s linear infinite;
+}
+
+@keyframes ajaxSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.ajax-error {
+    padding: 30px 15px;
+    text-align: center;
+    color: #c62828;
+}
+
+.ajax-error button {
+    display: block;
+    margin: 12px auto 0;
+    padding: 8px 16px;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+    </style>
+</head>
+
+
+
+  <basis core="dbsource" source="basiscore" name="dbs" lid="2" request="seo">
+    <member name="listt" type="list" request="product" id="[##cms.query.catid##]"></member>
+</basis>
+<basis core="dbsource" source="basiscore" lid="2" mid="19" name="list" catid="[##cms.query.catid##]" >
+  <member name="arch" type="list" perpage="200" typeid="159"  propertyid="13888,13889,13902,90757" />
+</basis>
+
+
+
+
+<body class="gallery-page landing-page light">
+    <script>
+        try {
+            const savedTheme = localStorage.getItem('saffar-theme');
+            if (savedTheme === 'light' || savedTheme === 'dark') {
+                document.body.classList.toggle('light', savedTheme === 'light');
+            }
+        } catch (_) {}
+    </script>
+
+
+<basis core="call" file="header.inc" lid="2"></basis>
+
+    <div class="page-spacer"></div>
+
+    <div class="container">
+        <div class="toolbar-row">
+            <div class="view-icons">
+                <span class="active" data-cols="4" title="4 columns">
+                    <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="3" height="16" fill="#333333" />
+                        <rect x="5" width="3" height="16" fill="#333333" />
+                        <rect x="10" width="3" height="16" fill="#333333" />
+                        <rect x="15" width="3" height="16" fill="#333333" />
+                    </svg>
+
+                </span>
+                <span data-cols="3" title="3 columns">
+                    <svg width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0H3V16H0V0Z" fill="#333333" />
+                        <path d="M5 0H8V16H5V0Z" fill="#333333" />
+                        <path d="M10 0H13V16H10V0Z" fill="#333333" />
+                    </svg>
+
+
+                </span>
+                <span data-cols="2" title="2 columns">
+                    <svg width="8" height="16" viewBox="0 0 8 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0H3V16H0V0Z" fill="#333333" />
+                        <path d="M5 0H8V16H5V0Z" fill="#333333" />
+                    </svg>
+
+
+                </span>
+                <span data-cols="list" title="list" id="listIcon">
+                    <svg width="22" height="15" viewBox="0 0 22 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 9.61651e-07V3L0 3L1.31135e-07 0L22 9.61651e-07Z" fill="#333333" />
+                        <path d="M22 6V9L0 9L1.31135e-07 6L22 6Z" fill="#333333" />
+                        <path d="M22 12V15L0 15L1.31135e-07 12L22 12Z" fill="#333333" />
+                    </svg>
+
+
+                </span>
+            </div>
+            <div class="right-icons">
+                <span id="filterPlus" class="filter-plus" title="filters" role="button" tabindex="0" aria-label="Toggle filters" aria-expanded="false">
+                    <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="5.23633" width="8.57106" height="1.90468" transform="rotate(90 5.23633 0)"
+                            fill="black" />
+                        <rect x="8.57031" y="5.23779" width="8.57106" height="1.90468"
+                            transform="rotate(-180 8.57031 5.23779)" fill="black" />
+                    </svg>
+
+                </span>
+                <span class="filters" id="filterBtn" title="filters">
+                    <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M6 4.12473e-07C5.37935 -0.00032496 4.77387 0.191856 4.26702 0.550057C3.76016 0.908257 3.37688 1.41484 3.17 2H0V4H3.17C3.3766 4.58553 3.75974 5.09257 4.2666 5.45121C4.77346 5.80985 5.37909 6.00245 6 6.00245C6.62091 6.00245 7.22654 5.80985 7.7334 5.45121C8.24026 5.09257 8.6234 4.58553 8.83 4H16V2H8.83C8.62312 1.41484 8.23984 0.908257 7.73298 0.550057C7.22613 0.191856 6.62065 -0.00032496 6 4.12473e-07ZM5 3C5 2.73478 5.10536 2.48043 5.29289 2.29289C5.48043 2.10536 5.73478 2 6 2C6.26522 2 6.51957 2.10536 6.70711 2.29289C6.89464 2.48043 7 2.73478 7 3C7 3.26522 6.89464 3.51957 6.70711 3.70711C6.51957 3.89464 6.26522 4 6 4C5.73478 4 5.48043 3.89464 5.29289 3.70711C5.10536 3.51957 5 3.26522 5 3ZM10 8C9.37935 7.99967 8.77387 8.19186 8.26702 8.55006C7.76016 8.90826 7.37688 9.41484 7.17 10H0V12H7.17C7.3766 12.5855 7.75974 13.0926 8.2666 13.4512C8.77346 13.8099 9.37909 14.0025 10 14.0025C10.6209 14.0025 11.2265 13.8099 11.7334 13.4512C12.2403 13.0926 12.6234 12.5855 12.83 12H16V10H12.83C12.6231 9.41484 12.2398 8.90826 11.733 8.55006C11.2261 8.19186 10.6207 7.99967 10 8ZM9 11C9 10.7348 9.10536 10.4804 9.29289 10.2929C9.48043 10.1054 9.73478 10 10 10C10.2652 10 10.5196 10.1054 10.7071 10.2929C10.8946 10.4804 11 10.7348 11 11C11 11.2652 10.8946 11.5196 10.7071 11.7071C10.5196 11.8946 10.2652 12 10 12C9.73478 12 9.48043 11.8946 9.29289 11.7071C9.10536 11.5196 9 11.2652 9 11Z"
+                            fill="black" />
+                    </svg>
+
+                    <div class="filter-pop" id="filterPop">
+                        <div class="desktop-filters" aria-label="Project filters">
+                            <div class="desktop-filter-group">
+                                <button type="button" class="desktop-filter-trigger"><span>Residential</span></button>
+                <div class="desktop-filter-menu">
+                    <button type="button">Residential</button><button type="button">Office</button>
+                    <button type="button">Commercial</button><button type="button">Cultural</button>
+                    <button type="button">Public</button><button type="button">Educational</button>
+                </div>
+            </div>
+            <div class="desktop-filter-group">
+                <button type="button" class="desktop-filter-trigger"><span>Contemporary</span></button>
+                <div class="desktop-filter-menu">
+                    <button type="button">Modern</button><button type="button">Minimal</button>
+                    <button type="button">Contemporary</button><button type="button">Sustainable</button>
+                    <button type="button">Conceptual Design</button>
+                </div>
+            </div>
+            <div class="desktop-filter-group">
+                <button type="button" class="desktop-filter-trigger"><span>2024</span></button>
+                <div class="desktop-filter-menu year-menu">
+                    <button type="button">2024</button><button type="button">2023</button>
+                    <button type="button">2022</button><button type="button">2021</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="mobile-filter-panel" role="dialog" aria-modal="true" aria-label="Filters">
+            <button class="mobile-filter-close" type="button" aria-label="Close filters">×</button>
+            <div class="mobile-filter-content">
+                <fieldset>
+                    <legend>FUNCTION / USE TYPE</legend>
+                    <div class="filter-options">
+                        <button type="button">RESIDENTIAL</button><button type="button">OFFICE</button><button type="button">COMMERCIAL</button><button type="button">CULTURAL</button><button type="button">PUBLIC</button><button type="button">EDUCATIONAL</button>
+                        <button type="button">HEALTHCARE</button><button type="button">HOTEL</button><button type="button">CAFÉ</button><button type="button">RESTAURANT</button><button type="button">TOURISM</button><button type="button">OUTDOOR /
+                                            LANDSCAPE</button>
+                        <button type="button">RENOVATION</button><button type="button">COMPETITION</button><button type="button">INTERIOR
+                                            DESIGN</button>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>SCALE / SIZE</legend>
+                    <div class="filter-options">
+                        <button type="button">VILLA</button><button type="button">SMALL
+                                            HOUSE</button><button type="button">MULTI-STORY BUILDING</button><button type="button">LARGE COMPLEX</button><button type="button">TOWER</button>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>PROJECT STATUS</legend>
+                    <div class="filter-options">
+                        <button type="button">COMPLETED</button><button type="button">UNDER
+                                            CONSTRUCTION</button><button type="button">IN DESIGN PHASE</button><button type="button">CONCEPTUAL PROJECT</button><button type="button">COMPETITION
+                                            ENTRY</button>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>STYLE / ARCHITECTURAL APPROACH</legend>
+                    <div class="filter-options">
+                        <button type="button">MODERN</button><button type="button">MINIMAL</button><button type="button">CONTEMPORARY</button><button type="button">SUSTAINABLE / GREEN
+                                            ARCHITECTURE</button><button type="button">INSPIRED BY IRANIAN
+                                            ARCHITECTURE</button>
+                        <button type="button">VERNACULAR</button><button type="button">CONCEPTUAL
+                                            DESIGN</button>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>LOCATION / GEOGRAPHY</legend>
+                    <div class="filter-options">
+                        <button type="button">MODERN</button><button type="button">MINIMAL</button><button type="button">CONTEMPORARY</button><button type="button">SUSTAINABLE / GREEN
+                                            ARCHITECTURE</button><button type="button">INSPIRED BY IRANIAN
+                                            ARCHITECTURE</button>
+                        <button type="button">VERNACULAR</button><button type="button">CONCEPTUAL
+                                            DESIGN</button>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>PROJECT TYPE</legend>
+                    <div class="year-range" data-min="2008" data-max="2024" data-from="2008" data-to="2019">
+                        <div class="year-range-slider" aria-label="Design years"></div>
+                        <div class="year-range-values"><span data-year-from>2008</span><span data-year-to>2019</span></div>
+                    </div>
+                </fieldset>
+            </div>
+            <button class="mobile-filter-submit" type="button">Submit</button>
+        </div>
+    </div>
+    </span>
+    </div>
+    </div>
+    </div>
+
+    <div class="container">
+        <div class="gallery-wrap" id="galleryWrap">
+            <div class="gallery" id="gallery">
+
+
+<basis core="print" datamembername="list.arch">
+  <face filter="rownumber<51">
+ <div class="item" data-category="architecture" data-project-link="/@link" role="link" tabindex="0">
+    <img class="photo" src="/@type_159" alt="@title">
+                    <div class="veil"></div>
+                    <div class="label"><strong>OK</strong>  @title </div>
+                </div>
+             
+    </face>
+</basis>
+           <basis core="print" datamembername="list.arch">
+  <face filter="rownumber>50">
+ <div class="item hidden" data-category="architecture" data-project-link="/@link" role="link" tabindex="0">
+    <img class="photo" src="/@type_159" alt="@title">
+                    <div class="veil"></div>
+                    <div class="label"><strong>OK</strong>  @title</div>
+                </div>
+             
+    </face>
+</basis>    
+              
+            </div>
+
+          
+            <div class="gallery-list" id="galleryList">
+
+
+
+             
+
+            </div>
+
+
+
+        </div>
+    <basis core="group" if="51 in ([##list.arch.rownumber##])">
+            <style>
+                body.gallery-page .load-more{
+                    display: flex;
+                }
+            </style>
+            </basis>
+        <div class="load-more">
+            <button id="loadMoreBtn"><span class="plus">+</span><span>Explore More</span></button>
+        </div>
+   
+    </div>
+
+ 
+    <basis core="call" file="footer.inc" lid="2"></basis>
+
+   <basis core="call" file="menu.inc" lid="2"></basis>
+
+    <div class="service-mobile-modal landing-project-modal" aria-hidden="true">
+        <div class="service-mobile-panel" role="dialog" aria-modal="true" aria-labelledby="landingProjectTitle">
+            <button class="service-mobile-close" type="button" aria-label="Close project details">
+                <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="16.6382" cy="16.6382" r="16.6382" fill="#606060"></circle>
+                    <rect x="22.8604" y="12.4901" width="14.6656" height="2.93311" transform="rotate(135 22.8604 12.4901)" fill="white"></rect>
+                    <rect x="12.4899" y="10.4163" width="14.6656" height="2.93311" transform="rotate(45 12.4899 10.4163)" fill="white"></rect>
+                </svg>
+            </button>
+            <div class="service-mobile-heading"><strong id="landingProjectTitle"></strong></div>
+            <div class="service-mobile-media"></div>
+            <div class="landing-project-copy"></div>
+        </div>
+    </div>
+    <div class="service-mobile-lightbox landing-project-lightbox" aria-hidden="true">
+        <button class="service-lightbox-close" type="button" aria-label="Close gallery">
+            <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="16.6382" cy="16.6382" r="16.6382" fill="#606060"></circle>
+                    <rect x="22.8604" y="12.4901" width="14.6656" height="2.93311" transform="rotate(135 22.8604 12.4901)" fill="white"></rect>
+                    <rect x="12.4899" y="10.4163" width="14.6656" height="2.93311" transform="rotate(45 12.4899 10.4163)" fill="white"></rect>
+                </svg>
+        </button>
+        <div class="service-lightbox-stage"></div>
+        <nav class="service-lightbox-nav" aria-label="Project gallery navigation"><button class="service-lightbox-prev" type="button"><span>‹</span> PRE</button><b class="service-lightbox-page">1-1</b><button class="service-lightbox-next" type="button">NEXT <span>›</span></button></nav>
+    </div>
+    <script src="js/nouislider.min.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+  <script src="js/app1.js"></script>
+
+<script>
+$(document).on("click", "#listIcon", function () {
+    const $galleryList = $("#galleryList");
+
+    // نمایش لودینگ قبل از شروع درخواست
+    $galleryList.html(`
+        <div class="ajax-loading">
+            <div class="loading-spinner"></div>
+            <p>Loading...</p>
+        </div>
+    `);
+
+    // دریافت محتوای لیست
+    $galleryList.load("/load-list.bc?catid=[##cms.query.catid##]", function (response, status) {
+        if (status === "error") {
+            $galleryList.html(`
+                <div class="ajax-error">
+                    Error in Load-Try Again.
+                    <button type="button" id="retryList">Try Again</button>
+                </div>
+            `);
+        }
+    });
+});
+
+// تلاش مجدد در صورت بروز خطا
+$(document).on("click", "#retryList", function () {
+    $("#listIcon").trigger("click");
+});
+    </script>
+</body>
+
+</html>

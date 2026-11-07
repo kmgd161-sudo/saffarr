@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta content="[##cms.seo.title|dbs.listt.title##]" name="description" />
+    <title>[##cms.seo.title|dbs.listt.title##]</title>
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+  <basis core="dbsource" source="basiscore" name="dbs" lid="2" request="seo">
+    <member name="listt" type="list" request="product" id="222971"></member>
+</basis>
+<basis core="dbsource" source="basiscore" mid="1" name="text" lid="2" usedforid="2448205">
+    <member name="service" type="view" ></member>
+</basis>
+<basis core="dbsource" source="media" name="db" lid="2" usedforid="2448205" sourcemid="1">
+    <member name="video" type="list" format="3"></member>
+   
+</basis>
+
+<basis core="dbsource" source="basiscore" lid="2" mid="19" name="list" catid="222971" >
+  <member name="services" type="list" link="product.bc" perpage="200" />
+</basis>
+
+
+<body class="gallery-page services-page  light service-pg">
+    <script>
+        try {
+            const t = localStorage.getItem('saffar-theme');
+            if (t === 'light' || t === 'dark') document.body.classList.toggle('light', t === 'light')
+        } catch (_) {}
+    </script>
+  
+
+<basis core="call" file="header.inc" lid="2"></basis>
+
+
+    <main class="services-main">
+        <section class="services-hero" aria-label="Services presentation">
+            <basis core="print" datamembername="db.video">
+                <face filter="ord=1">
+ <video autoplay muted loop playsinline
+                preload="auto">
+                <source src="/@largeimg" type="video/mp4">
+            </video>
+                </face>
+            </basis>
+           
+
+
+        </section>
+        <article class="services-sheet">
+            <div class="service-plan-bar" aria-live="polite"><span><b class="service-selected-count">00</b> Item Added
+                    To
+                    Proposal</span><a href="/order">Send request</a></div>
+            <div class="container">
+
+   <basis core="print" datamembername="text.service">
+                <face filter="prpid=7244">
+
+                <div class="services-intro">
+                    
+                    @answer
+                </div>
+
+
+</face>
+</basis>
+
+                <section class="services-list" aria-label="Available services">
+
+<basis core="repeater" name="rep" datamembername="list.services">
+    <basis core="dbsource" source="basiscore" mid="19" name="show" lid="2" usedforid="[##rep.current.id##]">
+    <member name="service" type="view" postsql="select * from [show.service] where typeid=144" ></member>
+</basis>
+<basis core="dbsource" source="media" name="db" lid="2" usedforid="[##rep.current.id##]" sourcemid="19">
+    <member name="image" type="list" format="4"></member>
+   
+</basis>
+
+<basis core="dbsource" source="media" name="db" lid="2" usedforid="[##rep.current.id##]" sourcemid="19">
+    <member name="vid" type="list" format="3"></member>
+   
+</basis>
+<basis core="print" datamembername="rep.current">
+    <face>
+               <article class="service-item" data-service="@title" data-gallery='
+    </face>
+</basis>
+                           <basis core="print" datamembername="db.image">
+                                    <face >
+                     @largeimg,
+                                    </face>
+                                </basis>
+                        
+                        <basis core="print" datamembername="rep.current">
+    <face>
+                        '>
+                        <div class="service-row">
+                            <a class="service-toggle" href="#">
+                                <b>@title</b>
+                            </face>
+                            </basis>
+                                <basis core="print" datamembername="show.service">
+                                    <face filter="rownumber=1">
+   <span>@answer</span>
+                                    </face>
+                                </basis>
+                             
+<basis core="print" datamembername="rep.current">
+    <face>
+                            </a>
+                            <button class="service-select" type="button">ADD TO PLAN <b>+</b></button>
+                        </div>
+                        <div class="service-detail list-detail">
+                            <div class="service-drag detail-gallery">
+                                
+                                </face>
+                            </basis>
+                                <basis core="print" datamembername="db.image">
+                                    <face >
+                                
+                                <img src="/@largeimg"
+                                    alt="@name" draggable="false">
+                                    </face>
+                                    </basis>
+                                       <basis core="print" datamembername="db.vid">
+                                    <face >
+                                    <video muted loop playsinline
+                                    preload="metadata">
+                                    <source src="/@largeimg" type="video/mp4">
+                                </video>
+                                </face>
+                                </basis>
+                             <basis core="print" datamembername="rep.current">
+    <face>
+                                
+                                </div>
+                            <div class="detail-copy">
+
+
+                            </face>
+                        </basis>
+                                <!-- <h3>
+                                    <a class="service-gallery-title" href="project-show-arch.html">
+                                        <span>bao</span>
+                                        Visual Identity</a>
+                                </h3> -->
+
+                                <basis core="print" datamembername="show.service">
+                                    <face filter="rownumber=2">
+                                <p>
+                               @answer
+
+                                </p>
+</face>
+</basis>
+<basis core="print" datamembername="rep.current">
+    <face>
+                            </div>
+                        </div>
+                    </article>
+    </face>
+</basis>
+
+
+</basis>
+             
+                  
+                    
+
+
+                </section>
+                <section class="service-showcase" aria-live="polite">
+                    <div class="service-showcase-track"></div>
+                    <div class="service-showcase-footer"><strong class="service-showcase-title">CROCO LEATHER</strong>
+                        <nav><button class="service-prev" type="button"><span aria-hidden="true">‹</span> PRE</button><b
+                                class="service-page">1–120</b><button class="service-next" type="button">NEXT <span
+                                    aria-hidden="true">›</span></button></nav><span
+                            class="service-showcase-category">FIELD LEATHER
+                            PRDC</span>
+                    </div>
+                </section>
+            </div>
+        </article>
+    </main>
+    <div class="service-mobile-modal" aria-hidden="true">
+        <div class="service-mobile-panel" role="dialog" aria-modal="true" aria-labelledby="serviceMobileTitle">
+            <button class="service-mobile-close" type="button" aria-label="Close service details">
+                <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="16.6382" cy="16.6382" r="16.6382" fill="#606060"></circle>
+                    <rect x="22.8604" y="12.4901" width="14.6656" height="2.93311"
+                        transform="rotate(135 22.8604 12.4901)" fill="white"></rect>
+                    <rect x="12.4899" y="10.4163" width="14.6656" height="2.93311"
+                        transform="rotate(45 12.4899 10.4163)" fill="white"></rect>
+                </svg>
+            </button>
+            <div class="service-mobile-heading"><strong id="serviceMobileTitle"></strong><button
+                    class="service-mobile-select" type="button">ADD TO PLAN <b>+</b></button></div>
+            <div class="service-mobile-plan-bar" aria-live="polite"><span><b class="service-mobile-plan-count">00</b>
+                    Item
+                    Added To Proposal</span><a href="/order">Send</a></div>
+            <p class="service-mobile-description"></p>
+            <div class="service-mobile-media"></div>
+        </div>
+    </div>
+    <div class="service-mobile-lightbox" aria-hidden="true"><button class="service-lightbox-close" type="button"
+            aria-label="Close gallery">
+            <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="16.6382" cy="16.6382" r="16.6382" fill="#606060"></circle>
+                <rect x="22.8604" y="12.4901" width="14.6656" height="2.93311" transform="rotate(135 22.8604 12.4901)"
+                    fill="white"></rect>
+                <rect x="12.4899" y="10.4163" width="14.6656" height="2.93311" transform="rotate(45 12.4899 10.4163)"
+                    fill="white"></rect>
+            </svg>
+        </button>
+        <div class="service-lightbox-stage"></div>
+        <nav class="service-lightbox-nav" aria-label="Service gallery navigation"><button class="service-lightbox-prev"
+                type="button"><span>‹</span> PRE</button><b class="service-lightbox-page">1-1</b><button
+                class="service-lightbox-next" type="button">NEXT <span>›</span></button></nav>
+    </div>
+
+
+
+  
+  
+ <basis core="call" file="footer.inc" lid="2"></basis>
+
+    <basis core="call" file="menu.inc" lid="2"></basis>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+    <script>
+        (function () {
+            var sheet = document.querySelector('.services-sheet');
+            var header = document.querySelector('header');
+            var ticking = false;
+
+            function syncHeader() {
+                ticking = false;
+                var threshold = sheet.offsetTop - (header ? header.offsetHeight : 80);
+                document.body.classList.toggle('cv-header-on-sheet', window.scrollY >= threshold);
+            }
+            syncHeader();
+            window.addEventListener('resize', syncHeader);
+            window.addEventListener('scroll', function () {
+                if (ticking) return;
+                ticking = true;
+                requestAnimationFrame(syncHeader);
+            }, {
+                passive: true
+            });
+        })();
+    </script>
+</body>
+
+</html>
